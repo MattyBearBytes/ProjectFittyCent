@@ -108,4 +108,4 @@ Backup*/
 UpgradeLog*.XML
 
 
-src\FittyCent.Web\App_Data
+src/FittyCent.Web/App_Data
