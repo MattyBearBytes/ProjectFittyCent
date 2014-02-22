@@ -26,6 +26,9 @@ namespace FittyCent.Data.Mappings {
             Property(x => x.Postcode)
                 .IsOptional()
                 .HasMaxLength(20);
+
+            HasMany(x => x.Classes)
+                .WithRequired(x => x.User);
         }
     }
 }

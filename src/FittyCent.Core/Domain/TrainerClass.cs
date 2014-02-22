@@ -7,6 +7,7 @@ namespace FittyCent.Domain {
         public virtual string Summary { get; set; }
         public virtual string Type { get; set; }
         public virtual string Keywords { get; set; }
+        public virtual UserAccount User { get; set; }
         public virtual ICollection<Session> Sessions { get; private set; }
 
         public TrainerClass() {

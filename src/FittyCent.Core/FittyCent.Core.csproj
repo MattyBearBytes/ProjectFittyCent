@@ -99,6 +99,10 @@
     <Compile Include="Migrations\201402221308481_UpdateProfilesAgain.Designer.cs">
       <DependentUpon>201402221308481_UpdateProfilesAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402221515471_AddRelationshipsToClasses.cs" />
+    <Compile Include="Migrations\201402221515471_AddRelationshipsToClasses.Designer.cs">
+      <DependentUpon>201402221515471_AddRelationshipsToClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManager.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402221308481_UpdateProfilesAgain.resx">
       <DependentUpon>201402221308481_UpdateProfilesAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402221515471_AddRelationshipsToClasses.resx">
+      <DependentUpon>201402221515471_AddRelationshipsToClasses.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

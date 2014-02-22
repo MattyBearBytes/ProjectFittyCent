@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FittyCent.Domain {
     public class UserAccount : IdentityUser {
@@ -8,5 +9,10 @@ namespace FittyCent.Domain {
         public virtual string Surname { get; set; }
         public virtual string Postcode { get; set; }
         public virtual TrainerProfile TrainerProfile { get; set; }
+        public virtual ICollection<TrainerClass> Classes { get; private set; }
+
+        public UserAccount() {
+            Classes = new List<TrainerClass>();
+        }
     }
 }

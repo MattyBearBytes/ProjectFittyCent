@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using FittyCent.Domain;
 using FittyCent.Web.Models;
+using FittyCent.Web.Models.Classes;
 
 namespace FittyCent.Web {
     public class AutoMapperConfig {
@@ -28,6 +29,13 @@ namespace FittyCent.Web {
                 .ForMember(dst => dst.Qualifications, map => map.MapFrom(src => src.TrainerProfile.Qualifications))
                 .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName))
                 .ForMember(dst => dst.CompanyWebsite, map => map.MapFrom(src => src.TrainerProfile.CompanyWebsite));
+
+            Mapper.CreateMap<TrainerClass, TrainerClassModel>();
+
+            Mapper.CreateMap<TrainerClassModel, TrainerClass>()
+                .ForMember(dst => dst.Sessions, map => map.Ignore())
+                .ForMember(dst => dst.Id, map => map.Ignore());
+
         }
 
         private static IEnumerable<string> SplitData(string toSplit) {
