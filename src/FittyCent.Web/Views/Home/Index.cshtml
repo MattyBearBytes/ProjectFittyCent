@@ -1,4 +1,5 @@
-﻿@{
+﻿@using FittyCent
+@{
     ViewBag.Title = "OpenAir Fitness";
 }
 <div class="splash-container">
@@ -7,21 +8,8 @@
             <label class="sr-only">Where do you want to train?</label>
             <input type="text" class="form-control location-input" placeholder="Where do you want to train?">
 
-            <select class="form-control">
-                <option>Type of Class</option>
-                <option>Bootcamp</option>
-                <option>Boxing</option>
-                <option>Crossfit</option>
-                <option>Core Training</option>
-                <option>Mums & Bubs</option>
-                <option>Kids Classes</option>
-                <option>Over 50s</option>
-                <option>Running/Walking</option>
-                <option>Sporting</option>
-                <option>Tai Chi</option>
-                <option>Teens Classes</option>
-                <option>Yoga</option>
-            </select>
+            @Html.DropDownList("ClassType", new SelectList(Constants.ClassTypes), "Type of Class", new { @class = "form-control" })
+
             <select class="form-control">
                 <option>AM</option>
                 <option>PM</option>

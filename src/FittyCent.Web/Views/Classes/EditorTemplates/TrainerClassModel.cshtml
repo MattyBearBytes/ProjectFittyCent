@@ -1,0 +1,8 @@
+﻿@model FittyCent.Web.Models.Classes.TrainerClassModel
+@using FittyCent
+
+@Html.HiddenFor(m => m.Id)
+@Html.FormGroupTextBoxFor(x => x.Title)
+@Html.FormGroupTextBoxFor(x => x.Summary)
+@Html.FormGroupDropDownFor(x => x.Type, new SelectList(Constants.ClassTypes), "-- Select a Class Type --")
+@Html.FormGroupTextBoxFor(x => x.Keywords)

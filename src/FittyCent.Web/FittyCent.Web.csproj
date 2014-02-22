@@ -274,10 +274,11 @@
     <Content Include="Views\About\PersonalTrainers.cshtml" />
     <Content Include="Views\About\Councils.cshtml" />
     <Content Include="Views\About\Participants.cshtml" />
+    <Content Include="Views\Classes\Create.cshtml" />
+    <Content Include="Views\Classes\EditorTemplates\TrainerClassModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Classes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
