@@ -1,0 +1,31 @@
+﻿@using FittyCent.Domain
+@model FittyCent.Web.Models.EditUserAccountModel
+@{
+    ViewBag.Title = "My Account";
+}
+@Html.Partial("_TrainerAccountNavMenu")
+<div class="body-content">
+    <h2>Edit Account</h2>
+    @using (Html.BeginForm("EditSettings", "Account", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+    {
+        @Html.FormGroupDisplayFor(m => m.UserName)
+        @Html.FormGroupDisplayFor(m => m.UserType)
+        @Html.FormGroupDisplayFor(m => m.Email)
+        @Html.HiddenFor(m => m.UserName)
+        @Html.HiddenFor(m => m.UserType)
+        @Html.HiddenFor(m => m.Email)
+        @Html.FormGroupTextBoxFor(m => m.FirstName)
+        @Html.FormGroupTextBoxFor(m => m.Surname)
+        @Html.HiddenFor(m => m.Postcode)
+
+        @Html.HiddenFor(m => m.Summary, "String_NotSupplied")
+        @Html.HiddenFor(m => m.CompanyName, "String_NotSupplied")
+        @Html.HiddenFor(m => m.CompanyWebsite, "String_NotSupplied")
+        @Html.HiddenFor(m => m.IsInsured, "Bool_NotSupplied")
+        @Html.HiddenFor(m => m.HasMobileServiceAvailable, "Bool_NotSupplied")
+        @Html.HiddenFor(m => m.Registrations, "StringArray")
+        @Html.HiddenFor(m => m.Qualifications, "StringArray")
+        @Html.HiddenFor(m => m.Specialisations, "StringArray")
+        <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+    }
+</div>

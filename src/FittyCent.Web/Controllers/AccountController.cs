@@ -234,7 +234,46 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpGet]
-        public ActionResult Edit() {
+        public ActionResult Profile() {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if ( user.TrainerProfile == null ) {
+                user.TrainerProfile = new TrainerProfile();
+            }
+
+            var model = Mapper.Map<UserAccountModel>(user);
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Classes()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Settings() {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if ( user.TrainerProfile == null ) {
+                user.TrainerProfile = new TrainerProfile();
+            }
+
+            var model = Mapper.Map<UserAccountModel>(user);
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult EditSettings() {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if ( user.TrainerProfile == null ) {
+                user.TrainerProfile = new TrainerProfile();
+            }
+
+            var model = Mapper.Map<EditUserAccountModel>(user);
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult EditProfile() {
             var user = UserManager.FindById(User.Identity.GetUserId());
             if ( user.TrainerProfile == null ) {
                 user.TrainerProfile = new TrainerProfile();
@@ -245,7 +284,19 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Edit(EditUserAccountModel model) {
+        public ActionResult EditSettings(EditUserAccountModel model)
+        {
+            return View(Edit(model));
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(EditUserAccountModel model)
+        {
+            return View(Edit(model));
+        }
+
+        private EditUserAccountModel Edit(EditUserAccountModel model)
+        {
             if ( ModelState.IsValid ) {
                 var user = UserManager.FindById(User.Identity.GetUserId());
 
@@ -270,11 +321,11 @@ namespace FittyCent.Web.Controllers {
 
                     UserManager.Update(user);
 
-                    return RedirectToAction("Me");
+                    return model;
                 }
             }
 
-            return View(model);
+            return model;
         }
 
         protected override void Dispose(bool disposing) {
