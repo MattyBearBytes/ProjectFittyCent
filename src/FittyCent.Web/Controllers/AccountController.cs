@@ -244,6 +244,38 @@ namespace FittyCent.Web.Controllers {
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult Edit(EditUserAccountModel model) {
+            if ( ModelState.IsValid ) {
+                var user = UserManager.FindById(User.Identity.GetUserId());
+
+                user.FirstName = model.FirstName;
+                user.Surname = model.Surname;
+                user.Postcode = model.Postcode;
+
+                if ( user.UserType == UserType.Trainer ) {
+                    if ( user.TrainerProfile == null ) {
+                        user.TrainerProfile = new TrainerProfile();
+                    }
+                    var trainerProfile = user.TrainerProfile;
+
+                    trainerProfile.Summary = model.Summary;
+                    trainerProfile.CompanyName = model.CompanyName;
+                    trainerProfile.IsInsured = model.IsInsured;
+                    trainerProfile.Registrations = model.Registrations;
+                    trainerProfile.Specialisations = model.Specialisations;
+                    trainerProfile.Qualifications = model.Qualifications;
+                    trainerProfile.HasMobileServiceAvailable = model.HasMobileServiceAvailable;
+
+                    UserManager.Update(user);
+
+                    return RedirectToAction("Me");
+                }
+            }
+
+            return View(model);
+        }
+
         protected override void Dispose(bool disposing) {
             if ( disposing && UserManager != null ) {
                 UserManager.Dispose();

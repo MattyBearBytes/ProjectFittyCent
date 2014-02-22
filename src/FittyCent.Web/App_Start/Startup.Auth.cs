@@ -28,9 +28,9 @@ namespace FittyCent.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "748474208498104",
+               appSecret: "19ee555095a180d9fea3359703c9cc3b");
 
             //app.UseGoogleAuthentication();
         }

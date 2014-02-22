@@ -1,7 +1,7 @@
-﻿@model bool?
+﻿@model string
 
-@if ( Model.HasValue ) {
-    @Model
-} else {
+@if ( string.IsNullOrWhiteSpace(Model) ) {
     <i class="small">not supplied</i>
+} else {
+    @Model
 }

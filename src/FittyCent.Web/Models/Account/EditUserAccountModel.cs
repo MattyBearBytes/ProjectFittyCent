@@ -20,6 +20,8 @@ namespace FittyCent.Web.Models {
         public string Summary { get; set; }
         [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
+        [Display(Name = "Has Mobile Service Available?")]
+        public bool HasMobileServiceAvailable { get; set; }
         [Display(Name = "Has Insurance?")]
         public bool IsInsured { get; set; }
         [Display(Name = "Registrations (comma seperated)")]
@@ -28,7 +30,5 @@ namespace FittyCent.Web.Models {
         public string Specialisations { get; set; }
         [Display(Name = "Qualifications (comma seperated)")]
         public string Qualifications { get; set; }
-        [Display(Name = "Has Mobile Service Available?")]
-        public bool HasMobileServiceAvailable { get; set; }
     }
 }
