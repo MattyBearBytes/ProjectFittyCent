@@ -209,6 +209,7 @@
     <Content Include="Content\images\dumbbell.png" />
     <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\outdoor_yoga.jpg" />
+    <Content Include="Content\images\voucher.jpg" />
     <Content Include="Content\images\yoga.jpg" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\normalize.min.css" />
