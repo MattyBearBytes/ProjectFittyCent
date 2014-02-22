@@ -12,6 +12,10 @@ namespace FittyCent.Data.Mappings {
                 .IsOptional()
                 .HasMaxLength(255);
 
+            Property(x => x.CompanyWebsite)
+                .IsOptional()
+                .HasMaxLength(255);
+
             Property(x => x.IsInsured)
                 .IsOptional();
 

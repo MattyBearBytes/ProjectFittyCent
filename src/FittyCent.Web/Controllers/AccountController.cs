@@ -261,6 +261,7 @@ namespace FittyCent.Web.Controllers {
 
                     trainerProfile.Summary = model.Summary;
                     trainerProfile.CompanyName = model.CompanyName;
+                    trainerProfile.CompanyWebsite = model.CompanyWebsite;
                     trainerProfile.IsInsured = model.IsInsured;
                     trainerProfile.Registrations = model.Registrations;
                     trainerProfile.Specialisations = model.Specialisations;

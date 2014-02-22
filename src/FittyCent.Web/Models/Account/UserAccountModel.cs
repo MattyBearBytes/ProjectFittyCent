@@ -16,10 +16,12 @@ namespace FittyCent.Web.Models {
         [Display(Name = "Postcode")]
         public string Postcode { get; set; }
 
-        [Display(Name = "Summary")]
+        [Display(Name = "Bio")]
         public string Summary { get; set; }
         [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
+        [Display(Name = "Company Website")]
+        public string CompanyWebsite { get; set; }
         [Display(Name = "Has Insurance?")]
         public bool? IsInsured { get; set; }
         [Display(Name = "Registrations")]

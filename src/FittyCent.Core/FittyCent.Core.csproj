@@ -62,13 +62,19 @@
     <Compile Include="Data\Mappings\IdentityUserLoginMapping.cs" />
     <Compile Include="Data\Mappings\IdentityUserMapping.cs" />
     <Compile Include="Data\Mappings\IdentityUserRoleMapping.cs" />
+    <Compile Include="Data\Mappings\SessionMapping.cs" />
+    <Compile Include="Data\Mappings\TrainerClassMapping.cs" />
     <Compile Include="Data\Mappings\TrainerProfileMapping.cs" />
     <Compile Include="Data\Mappings\UserAccountMapping.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Domain\Audience.cs" />
+    <Compile Include="Domain\Session.cs" />
+    <Compile Include="Domain\TrainerClass.cs" />
     <Compile Include="Domain\TrainerProfile.cs" />
     <Compile Include="Domain\UserAccount.cs" />
     <Compile Include="Domain\UserType.cs" />
+    <Compile Include="Domain\VenueType.cs" />
     <Compile Include="Migrations\201402220451176_initial.cs" />
     <Compile Include="Migrations\201402220451176_initial.Designer.cs">
       <DependentUpon>201402220451176_initial.cs</DependentUpon>
@@ -84,6 +90,14 @@
     <Compile Include="Migrations\201402220900485_AddTrainerProfileDetails.cs" />
     <Compile Include="Migrations\201402220900485_AddTrainerProfileDetails.Designer.cs">
       <DependentUpon>201402220900485_AddTrainerProfileDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402221251041_UpdateProfiles.cs" />
+    <Compile Include="Migrations\201402221251041_UpdateProfiles.Designer.cs">
+      <DependentUpon>201402221251041_UpdateProfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402221308481_UpdateProfilesAgain.cs" />
+    <Compile Include="Migrations\201402221308481_UpdateProfilesAgain.Designer.cs">
+      <DependentUpon>201402221308481_UpdateProfilesAgain.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402220900485_AddTrainerProfileDetails.resx">
       <DependentUpon>201402220900485_AddTrainerProfileDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402221251041_UpdateProfiles.resx">
+      <DependentUpon>201402221251041_UpdateProfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402221308481_UpdateProfilesAgain.resx">
+      <DependentUpon>201402221308481_UpdateProfilesAgain.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

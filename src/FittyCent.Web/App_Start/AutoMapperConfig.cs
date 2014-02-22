@@ -15,7 +15,8 @@ namespace FittyCent.Web {
                 .ForMember(dst => dst.Registrations, map => map.MapFrom(src => SplitData(src.TrainerProfile.Registrations)))
                 .ForMember(dst => dst.Specialisations, map => map.MapFrom(src => SplitData(src.TrainerProfile.Specialisations)))
                 .ForMember(dst => dst.Qualifications, map => map.MapFrom(src => SplitData(src.TrainerProfile.Qualifications)))
-                .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName));
+                .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName))
+                .ForMember(dst => dst.CompanyWebsite, map => map.MapFrom(src => src.TrainerProfile.CompanyWebsite));
 
             Mapper.CreateMap<UserAccount, EditUserAccountModel>()
                 .ForMember(dst => dst.HasMobileServiceAvailable,
@@ -25,7 +26,8 @@ namespace FittyCent.Web {
                 .ForMember(dst => dst.Registrations, map => map.MapFrom(src => src.TrainerProfile.Registrations))
                 .ForMember(dst => dst.Specialisations, map => map.MapFrom(src => src.TrainerProfile.Specialisations))
                 .ForMember(dst => dst.Qualifications, map => map.MapFrom(src => src.TrainerProfile.Qualifications))
-                .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName));
+                .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName))
+                .ForMember(dst => dst.CompanyWebsite, map => map.MapFrom(src => src.TrainerProfile.CompanyWebsite));
         }
 
         private static IEnumerable<string> SplitData(string toSplit) {
