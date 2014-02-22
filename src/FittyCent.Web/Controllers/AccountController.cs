@@ -29,7 +29,6 @@ namespace FittyCent.Web.Controllers {
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl) {
             if ( ModelState.IsValid ) {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
@@ -49,12 +48,12 @@ namespace FittyCent.Web.Controllers {
         public ActionResult Register() {
             return View();
         }
+
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model) {
             if ( ModelState.IsValid ) {
-                var user = new UserAccount() { UserName = model.UserName };
+                var user = new UserAccount() { UserName = model.UserName, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if ( result.Succeeded ) {
                     await SignInAsync(user, isPersistent: false);
@@ -69,7 +68,6 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Disassociate(string loginProvider, string providerKey) {
             ManageMessageId? message = null;
             IdentityResult result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
@@ -94,7 +92,6 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Manage(ManageUserViewModel model) {
             bool hasPassword = HasPassword();
             ViewBag.HasLocalPassword = hasPassword;
@@ -131,7 +128,6 @@ namespace FittyCent.Web.Controllers {
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl) {
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
@@ -158,7 +154,6 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider) {
             // Request a redirect to the external login provider to link a login for the current user
             return new ChallengeResult(provider, Url.Action("LinkLoginCallback", "Account"), User.Identity.GetUserId());
@@ -178,7 +173,6 @@ namespace FittyCent.Web.Controllers {
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) {
             if ( User.Identity.IsAuthenticated ) {
                 return RedirectToAction("Manage");
@@ -207,7 +201,6 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult LogOff() {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
