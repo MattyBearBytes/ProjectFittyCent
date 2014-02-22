@@ -23,6 +23,7 @@ namespace FittyCent.Web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/normalize.css",
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
