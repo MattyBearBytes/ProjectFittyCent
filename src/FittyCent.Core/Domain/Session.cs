@@ -2,12 +2,12 @@
 
 namespace FittyCent.Domain {
     public class Session {
-        public int Id { get; set; }
-        public DateTime DateTime { get; set; }
-        public double Price { get; set; }
-        public int ClassLimit { get; set; }
-        public VenueType VenueType { get; set; }
-        public Audience Audience { get; set; }
-        public TrainerClass Class { get; set; }
+        public virtual int Id { get; set; }
+        public virtual DateTime DateTime { get; set; }
+        public virtual double Price { get; set; }
+        public virtual int ClassLimit { get; set; }
+        public virtual VenueType VenueType { get; set; }
+        public virtual Audience Audience { get; set; }
+        public virtual TrainerClass Class { get; set; }
     }
 }
