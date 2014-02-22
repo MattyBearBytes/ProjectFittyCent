@@ -307,12 +307,14 @@ namespace FittyCent.Web.Controllers {
 
         [HttpPost]
         public ActionResult EditSettings(EditUserAccountModel model) {
-            return View(Edit(model));
+            Edit(model);
+            return RedirectToAction("Settings");
         }
 
         [HttpPost]
         public ActionResult EditProfile(EditUserAccountModel model) {
-            return View(Edit(model));
+            Edit(model);
+            return RedirectToAction("Profile");
         }
 
         private EditUserAccountModel Edit(EditUserAccountModel model) {
@@ -339,8 +341,6 @@ namespace FittyCent.Web.Controllers {
                     trainerProfile.HasMobileServiceAvailable = model.HasMobileServiceAvailable;
 
                     UserManager.Update(user);
-
-                    return model;
                 }
             }
 

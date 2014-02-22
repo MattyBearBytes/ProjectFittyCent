@@ -1,7 +1,14 @@
 ﻿@model bool?
 
 @if ( Model.HasValue ) {
-    @Model
+    if (Model.Value)
+    {
+<text>Yes</text>
+    }
+    else
+    {
+<text>No</text>
+    }
 } else {
     <i class="small">not supplied</i>
 }

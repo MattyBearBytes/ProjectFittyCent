@@ -80,3 +80,21 @@ input[type="checkbox"].input-validation-error {
 .location-input {
     width: 280px !important;
 }
+
+.readonly-container {
+    padding-left: 15px;    
+} 
+.readonly-container .row {
+    padding: 5px 0;
+    font-size: 14px;
+}
+.readonly-container .row ul {
+    padding: 0;
+}
+.readonly-container label {
+    font-size: 14px;
+    width: 15%;
+}
+.edit-container {
+    
+}

@@ -6,10 +6,12 @@
 @Html.Partial("_TrainerAccountNavMenu")
 <div class="body-content">
     <h2>Account Settings</h2>
-    @Html.RowDisplayFor(m => m.UserName)
-    @Html.RowDisplayFor(m => m.UserType)
-    @Html.RowDisplayFor(m => m.Email)
-    @Html.RowDisplayFor(m => m.FirstName, "String_NotSupplied")
-    @Html.RowDisplayFor(m => m.Surname, "String_NotSupplied")
-    @Html.ActionLink("Edit Settings", "EditSettings", "Account")
+    <div class="readonly-container">
+        @Html.RowDisplayFor(m => m.UserName)
+        @Html.RowDisplayFor(m => m.UserType)
+        @Html.RowDisplayFor(m => m.Email)
+        @Html.RowDisplayFor(m => m.FirstName, "String_NotSupplied")
+        @Html.RowDisplayFor(m => m.Surname, "String_NotSupplied")
+        @Html.ActionLink("Edit Settings", "EditSettings", "Account", new { @class = "btn btn-sm btn-primary" })
+    </div>
 </div>

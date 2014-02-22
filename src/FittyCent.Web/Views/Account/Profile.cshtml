@@ -6,15 +6,18 @@
 @Html.Partial("_TrainerAccountNavMenu")
 <div class="body-content">
     <h2>My Profile</h2>
-    @if ( Model.UserType == UserType.Trainer ) {
-        @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
-        @Html.RowDisplayFor(m => m.CompanyName, "String_NotSupplied")
-        @Html.RowDisplayFor(m => m.CompanyWebsite, "String_NotSupplied")
-        @Html.RowDisplayFor(m => m.IsInsured, "Bool_NotSupplied")
-        @Html.RowDisplayFor(m => m.HasMobileServiceAvailable, "Bool_NotSupplied")
-        @Html.RowDisplayFor(m => m.Registrations, "StringArray")
-        @Html.RowDisplayFor(m => m.Qualifications, "StringArray")
-        @Html.RowDisplayFor(m => m.Specialisations, "StringArray")
-    }
-    @Html.ActionLink("Edit Profile", "EditProfile", "Account")
+    <div class="readonly-container">
+        @if (Model.UserType == UserType.Trainer)
+        {
+            @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
+            @Html.RowDisplayFor(m => m.CompanyName, "String_NotSupplied")
+            @Html.RowDisplayFor(m => m.CompanyWebsite, "String_NotSupplied")
+            @Html.RowDisplayFor(m => m.IsInsured, "Bool_NotSupplied")
+            @Html.RowDisplayFor(m => m.HasMobileServiceAvailable, "Bool_NotSupplied")
+            @Html.RowDisplayFor(m => m.Registrations, "StringArray")
+            @Html.RowDisplayFor(m => m.Qualifications, "StringArray")
+            @Html.RowDisplayFor(m => m.Specialisations, "StringArray")
+        }
+        @Html.ActionLink("Edit Profile", "EditProfile", "Account", new { @class = "btn btn-sm btn-primary" })
+    </div>
 </div>

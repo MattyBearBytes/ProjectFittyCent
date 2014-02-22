@@ -30,10 +30,10 @@ namespace FittyCent.Web.Models {
         [Display(Name = "Company Website")]
         public string CompanyWebsite { get; set; }
 
-        [Display(Name = "Has Mobile Service Available?")]
+        [Display(Name = "Do you provide a mobile service?")]
         public bool HasMobileServiceAvailable { get; set; }
 
-        [Display(Name = "Has Insurance?")]
+        [Display(Name = "Is your business insurance covered?")]
         public bool IsInsured { get; set; }
 
         [Display(Name = "Associations (comma seperated)")]
