@@ -203,6 +203,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\Athlete-Silhouette.png" />
+    <Content Include="Content\images\council.png" />
+    <Content Include="Content\images\dumbbell.png" />
     <Content Include="Content\images\logo.jpg" />
     <Content Include="Content\images\outdoor_yoga.jpg" />
     <Content Include="Content\images\yoga.jpg" />
@@ -263,6 +266,7 @@
     <Content Include="Views\Shared\DisplayTemplates\String_NotSupplied.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StringArray.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Home\PersonalTrainers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

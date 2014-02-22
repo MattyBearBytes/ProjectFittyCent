@@ -7,8 +7,21 @@ namespace FittyCent.Web.Controllers {
         }
 
         public ActionResult About() {
-            ViewBag.Message = "Your application description page.";
+            return View();
+        }
 
+        public ActionResult PersonalTrainers()
+        {
+            return View();
+        }
+
+        public ActionResult Participants()
+        {
+            return View();
+        }
+
+        public ActionResult Councils()
+        {
             return View();
         }
 
