@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 
-namespace Boxcubic.PropertyMarketing.Web {
+namespace FittyCent.Web {
     public static class HtmlExtensions {
         private const string FormGroup_ControlCssClasses = "form-control";
         private const string FormGroup_LabelCssClasses = "control-label col-md-3 col-sm-4 col-xs-12";
