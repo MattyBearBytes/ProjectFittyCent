@@ -274,6 +274,12 @@
     <Content Include="Views\About\PersonalTrainers.cshtml" />
     <Content Include="Views\About\Councils.cshtml" />
     <Content Include="Views\About\Participants.cshtml" />
+    <Content Include="Views\Account\Settings.cshtml" />
+    <Content Include="Views\Account\Classes.cshtml" />
+    <Content Include="Views\Account\EditSettings.cshtml" />
+    <Content Include="Views\Account\EditProfile.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Shared\_TrainerAccountNavMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

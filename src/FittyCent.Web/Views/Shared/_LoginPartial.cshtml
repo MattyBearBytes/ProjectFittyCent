@@ -1,6 +1,6 @@
 ﻿@if ( Request.IsAuthenticated ) {
     <li>
-        @Html.ActionLink("My Account", "Me", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+        @Html.ActionLink("My Account", "Classes", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
     </li>
     <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
 

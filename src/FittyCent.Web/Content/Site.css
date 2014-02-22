@@ -18,6 +18,13 @@ footer {
     box-shadow: 4px 4px 10px #222121;
 }
 
+.nav-tabs {
+    margin-top: 20px;    
+}
+
+.nav:first-child {
+    padding-left: 15px;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

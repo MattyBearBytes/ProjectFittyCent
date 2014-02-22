@@ -1,0 +1,33 @@
+﻿@using FittyCent.Domain
+@model FittyCent.Web.Models.EditUserAccountModel
+@{
+    ViewBag.Title = "My Account";
+}
+@Html.Partial("_TrainerAccountNavMenu")
+<div class="body-content">
+    <h2>Edit Account</h2>
+    @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+    {
+        if (Model.UserType == UserType.Trainer)
+        {
+            @Html.FormGroupTextAreaFor(m => m.Summary)
+            @Html.FormGroupCheckBoxFor(m => m.IsInsured)
+            @Html.FormGroupCheckBoxFor(m => m.HasMobileServiceAvailable)
+            @Html.FormGroupTextBoxFor(m => m.CompanyName)
+            @Html.FormGroupTextBoxFor(m => m.CompanyWebsite)
+            @Html.FormGroupTextAreaFor(m => m.Registrations)
+            @Html.FormGroupTextAreaFor(m => m.Qualifications)
+            @Html.FormGroupTextAreaFor(m => m.Specialisations)
+        }
+        @Html.HiddenFor(m => m.UserName)
+        @Html.HiddenFor(m => m.UserType)
+        @Html.HiddenFor(m => m.Email)
+        @Html.HiddenFor(m => m.UserName)
+        @Html.HiddenFor(m => m.UserType)
+        @Html.HiddenFor(m => m.Email)
+        @Html.HiddenFor(m => m.FirstName)
+        @Html.HiddenFor(m => m.Surname)
+        @Html.HiddenFor(m => m.Postcode)
+        <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+    }
+</div>
