@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using FittyCent.Data;
@@ -11,6 +12,8 @@ using FittyCent.Web.Models;
 namespace FittyCent.Web.Controllers {
     [Authorize]
     public class AccountController : Controller {
+        private const string StringSchemaType = "http://www.w3.org/2001/XMLSchema#string";
+
         public AccountController()
             : this(new UserManager<UserAccount>(new UserStore<UserAccount>(new FitnessContext()))) {
         }
@@ -239,6 +242,11 @@ namespace FittyCent.Web.Controllers {
         private async Task SignInAsync(UserAccount user, bool isPersistent) {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+
+            if ( user.UserType == UserType.Trainer ) {
+                identity.AddClaim(new Claim(Constants.Claims.Role, Constants.Roles.Trainer, StringSchemaType));
+            }
+
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
