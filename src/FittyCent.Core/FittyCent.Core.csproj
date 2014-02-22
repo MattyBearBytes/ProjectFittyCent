@@ -65,15 +65,6 @@
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Domain\UserAccount.cs" />
-    <Compile Include="Mediation\CommandResult.cs" />
-    <Compile Include="Mediation\CommandResultState.cs" />
-    <Compile Include="Mediation\ICommand.cs" />
-    <Compile Include="Mediation\ICommandHandler.cs" />
-    <Compile Include="Mediation\IMediator.cs" />
-    <Compile Include="Mediation\IQuery.cs" />
-    <Compile Include="Mediation\IQueryHandler.cs" />
-    <Compile Include="Mediation\Mediator.cs" />
-    <Compile Include="Mediation\UnitType.cs" />
     <Compile Include="Migrations\201402220451176_initial.cs" />
     <Compile Include="Migrations\201402220451176_initial.Designer.cs">
       <DependentUpon>201402220451176_initial.cs</DependentUpon>
