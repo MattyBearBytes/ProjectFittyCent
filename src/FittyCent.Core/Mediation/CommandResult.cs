@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace FittyCent.Core.Mediation {
+namespace FittyCent.Mediation {
     public sealed class CommandResult : CommandResult<UnitType> {
         private CommandResult(params string[] errors)
             : base(UnitType.Default, errors) { }

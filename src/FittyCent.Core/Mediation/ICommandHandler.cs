@@ -1,4 +1,4 @@
-﻿namespace FittyCent.Core.Mediation {
+﻿namespace FittyCent.Mediation {
     public interface ICommandHandler<in TCommand, TResult> {
         CommandResult<TResult> Handle(TCommand command);
     }

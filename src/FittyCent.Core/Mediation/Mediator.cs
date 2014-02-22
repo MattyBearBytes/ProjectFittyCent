@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace FittyCent.Core.Mediation {
+namespace FittyCent.Mediation {
     public class Mediator : IMediator {
         private readonly Func<Type, object> _dependencyResolver;
 

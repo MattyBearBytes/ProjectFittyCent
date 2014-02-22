@@ -7,7 +7,7 @@
     <ProjectGuid>{3A0CFB54-3391-4A27-BAEB-441A22F15155}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FittyCent.Core</RootNamespace>
+    <RootNamespace>FittyCent</RootNamespace>
     <AssemblyName>FittyCent.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

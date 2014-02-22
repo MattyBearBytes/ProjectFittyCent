@@ -1,3 +1,3 @@
-﻿namespace FittyCent.Core.Mediation {
+﻿namespace FittyCent.Mediation {
     public interface IQuery<TResponse> { }
 }
