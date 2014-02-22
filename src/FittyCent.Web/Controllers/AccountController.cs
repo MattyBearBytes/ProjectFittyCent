@@ -1,4 +1,7 @@
-﻿using System.Security.Claims;
+﻿using System;
+using System.IO;
+using System.Net.Mail;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -61,6 +64,15 @@ namespace FittyCent.Web.Controllers {
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if ( result.Succeeded ) {
                     await SignInAsync(user, isPersistent: false);
+
+                    var mailMessage = new MailMessage();
+                    mailMessage.To.Add("yourEmail@hotmail.co.uk");
+                    mailMessage.Subject = "testing 2 ";
+                    mailMessage.Body = RenderWelcomeEmail(model);
+                    mailMessage.IsBodyHtml = true;
+                    var smptClient = new SmtpClient { EnableSsl = false };
+                    smptClient.Send(mailMessage);
+
                     return RedirectToAction("MyAccount", "Account");
                 } else {
                     AddErrors(result);
@@ -69,6 +81,19 @@ namespace FittyCent.Web.Controllers {
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        public string RenderWelcomeEmail(object model)
+        {
+            ViewData.Model = model;
+            using (var sw = new StringWriter())
+            {
+                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, "WelcomeEmail");
+                var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+
+                return sw.GetStringBuilder().ToString();
+            }
         }
 
         [HttpPost]

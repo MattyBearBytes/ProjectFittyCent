@@ -214,6 +214,7 @@
     <Content Include="Content\images\outdoor_yoga.jpg" />
     <Content Include="Content\images\voucher.jpg" />
     <Content Include="Content\images\yoga.jpg" />
+    <Content Include="Content\images\yogaemail.jpg" />
     <Content Include="Content\normalize.css" />
     <Content Include="Content\normalize.min.css" />
     <Content Include="favicon.ico" />
@@ -282,6 +283,8 @@
     <Content Include="Views\Account\EditProfile.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Shared\_TrainerAccountNavMenu.cshtml" />
+    <Content Include="Views\Account\WelcomeEmail.cshtml" />
+    <Content Include="Views\Shared\_EmailLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
