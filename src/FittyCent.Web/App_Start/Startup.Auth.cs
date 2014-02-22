@@ -1,18 +1,15 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Facebook;
 using Owin;
 
-namespace FittyCent.Web
-{
-    public partial class Startup
-    {
+namespace FittyCent.Web {
+    public partial class Startup {
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
-        public void ConfigureAuth(IAppBuilder app)
-        {
+        public void ConfigureAuth(IAppBuilder app) {
             // Enable the application to use a cookie to store information for the signed in user
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
+            app.UseCookieAuthentication(new CookieAuthenticationOptions {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Account/Login")
             });
@@ -28,9 +25,14 @@ namespace FittyCent.Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "748474208498104",
-               appSecret: "19ee555095a180d9fea3359703c9cc3b");
+            //var facebookAuthOptions = new FacebookAuthenticationOptions {
+            //    AppId = "748474208498104",
+            //    AppSecret = "19ee555095a180d9fea3359703c9cc3b"
+            //};
+
+            //facebookAuthOptions.Scope.Add("email");
+
+            //app.UseFacebookAuthentication(facebookAuthOptions);
 
             //app.UseGoogleAuthentication();
         }
