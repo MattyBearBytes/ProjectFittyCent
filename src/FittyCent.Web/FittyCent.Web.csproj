@@ -267,6 +267,8 @@
     <Content Include="Views\Shared\DisplayTemplates\StringArray.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Home\PersonalTrainers.cshtml" />
+    <Content Include="Views\Home\Councils.cshtml" />
+    <Content Include="Views\Home\Participants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
