@@ -8,13 +8,9 @@ namespace FittyCent.Data.Mappings {
 
             HasKey(x => x.Id);
 
-            Property(x => x.FirstName)
+            Property(x => x.Email)
                 .IsRequired()
-                .HasMaxLength(255);
-
-            Property(x => x.Surname)
-                .IsRequired()
-                .HasMaxLength(255);
+                .HasMaxLength(512);
         }
     }
 }
