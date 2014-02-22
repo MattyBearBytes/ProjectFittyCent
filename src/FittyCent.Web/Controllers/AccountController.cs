@@ -53,7 +53,7 @@ namespace FittyCent.Web.Controllers {
         [AllowAnonymous]
         public async Task<ActionResult> Register(RegisterViewModel model) {
             if ( ModelState.IsValid ) {
-                var user = new UserAccount() { UserName = model.UserName, Email = model.Email };
+                var user = new UserAccount() { UserName = model.UserName, Email = model.Email, UserType = model.UserType.Value };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if ( result.Succeeded ) {
                     await SignInAsync(user, isPersistent: false);

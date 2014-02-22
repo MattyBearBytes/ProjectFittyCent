@@ -11,6 +11,9 @@ namespace FittyCent.Data.Mappings {
             Property(x => x.Email)
                 .IsRequired()
                 .HasMaxLength(512);
+
+            Property(x => x.UserType)
+                .IsRequired();
         }
     }
 }

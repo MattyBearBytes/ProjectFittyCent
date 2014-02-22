@@ -65,6 +65,7 @@
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Domain\UserAccount.cs" />
+    <Compile Include="Domain\UserType.cs" />
     <Compile Include="Migrations\201402220451176_initial.cs" />
     <Compile Include="Migrations\201402220451176_initial.Designer.cs">
       <DependentUpon>201402220451176_initial.cs</DependentUpon>
@@ -72,6 +73,10 @@
     <Compile Include="Migrations\201402220537328_UpdateUserAccount.cs" />
     <Compile Include="Migrations\201402220537328_UpdateUserAccount.Designer.cs">
       <DependentUpon>201402220537328_UpdateUserAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402220735006_AddUserTypeToUserAccount.cs" />
+    <Compile Include="Migrations\201402220735006_AddUserTypeToUserAccount.Designer.cs">
+      <DependentUpon>201402220735006_AddUserTypeToUserAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402220537328_UpdateUserAccount.resx">
       <DependentUpon>201402220537328_UpdateUserAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402220735006_AddUserTypeToUserAccount.resx">
+      <DependentUpon>201402220735006_AddUserTypeToUserAccount.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

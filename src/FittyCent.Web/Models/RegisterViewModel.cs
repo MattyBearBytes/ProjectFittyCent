@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using FittyCent.Domain;
 
-namespace FittyCent.Web.Models
-{
+namespace FittyCent.Web.Models {
     public class RegisterViewModel {
         [Required]
         [Display(Name = "User name")]
@@ -23,6 +23,10 @@ namespace FittyCent.Web.Models
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
+
+        [Display(Name = "User Type")]
+        [Required]
+        public UserType? UserType { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
