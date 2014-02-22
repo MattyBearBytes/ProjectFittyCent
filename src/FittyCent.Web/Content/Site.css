@@ -14,6 +14,10 @@ footer {
     padding: 0;
 }
 
+.navbar {
+    box-shadow: 2px 2px 5px #222121;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
