@@ -3,6 +3,17 @@
     padding-bottom: 20px;
 }
 
+footer {
+    border-top: #CCCCCC solid 1px;
+    margin: 5px 20px;
+    padding-top: 10px;
+}
+
+/* Bootstrap overrides */
+.container-fluid {
+    padding: 0;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -39,4 +50,22 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+.splash-container {
+    width: 100%;
+    background: url("/Content/images/yoga.jpg") top -80px center no-repeat;
+    height: 450px;
+    margin-top: -5px;
+    position: relative;
+}
+
+.search-form {
+    margin: auto;
+    text-align: center;
+    padding-top: 200px;
+}
+
+.location-input {
+    width: 280px !important;
 }
