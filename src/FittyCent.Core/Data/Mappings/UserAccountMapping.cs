@@ -14,6 +14,18 @@ namespace FittyCent.Data.Mappings {
 
             Property(x => x.UserType)
                 .IsRequired();
+
+            Property(x => x.FirstName)
+                .IsOptional()
+                .HasMaxLength(255);
+
+            Property(x => x.Surname)
+                .IsOptional()
+                .HasMaxLength(255);
+
+            Property(x => x.Postcode)
+                .IsOptional()
+                .HasMaxLength(20);
         }
     }
 }

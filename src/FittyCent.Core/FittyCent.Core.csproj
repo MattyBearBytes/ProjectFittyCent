@@ -62,6 +62,7 @@
     <Compile Include="Data\Mappings\IdentityUserLoginMapping.cs" />
     <Compile Include="Data\Mappings\IdentityUserMapping.cs" />
     <Compile Include="Data\Mappings\IdentityUserRoleMapping.cs" />
+    <Compile Include="Data\Mappings\TrainerProfileMapping.cs" />
     <Compile Include="Data\Mappings\UserAccountMapping.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
@@ -78,6 +79,10 @@
     <Compile Include="Migrations\201402220735006_AddUserTypeToUserAccount.cs" />
     <Compile Include="Migrations\201402220735006_AddUserTypeToUserAccount.Designer.cs">
       <DependentUpon>201402220735006_AddUserTypeToUserAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402220900485_AddTrainerProfileDetails.cs" />
+    <Compile Include="Migrations\201402220900485_AddTrainerProfileDetails.Designer.cs">
+      <DependentUpon>201402220900485_AddTrainerProfileDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402220735006_AddUserTypeToUserAccount.resx">
       <DependentUpon>201402220735006_AddUserTypeToUserAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402220900485_AddTrainerProfileDetails.resx">
+      <DependentUpon>201402220900485_AddTrainerProfileDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
