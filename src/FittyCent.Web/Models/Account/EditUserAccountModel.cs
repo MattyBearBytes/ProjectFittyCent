@@ -22,11 +22,11 @@ namespace FittyCent.Web.Models {
         public string CompanyName { get; set; }
         [Display(Name = "Has Insurance?")]
         public bool IsInsured { get; set; }
-        [Display(Name = "Registrations")]
+        [Display(Name = "Registrations (comma seperated)")]
         public string Registrations { get; set; }
-        [Display(Name = "Specialisations")]
+        [Display(Name = "Specialisations (comma seperated)")]
         public string Specialisations { get; set; }
-        [Display(Name = "Qualifications")]
+        [Display(Name = "Qualifications (comma seperated)")]
         public string Qualifications { get; set; }
         [Display(Name = "Has Mobile Service Available?")]
         public bool HasMobileServiceAvailable { get; set; }
