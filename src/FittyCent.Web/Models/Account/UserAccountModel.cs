@@ -24,7 +24,7 @@ namespace FittyCent.Web.Models {
         public string CompanyWebsite { get; set; }
         [Display(Name = "Has Insurance?")]
         public bool? IsInsured { get; set; }
-        [Display(Name = "Registrations")]
+        [Display(Name = "Associations")]
         public string[] Registrations { get; set; }
         [Display(Name = "Specialisations")]
         public string[] Specialisations { get; set; }

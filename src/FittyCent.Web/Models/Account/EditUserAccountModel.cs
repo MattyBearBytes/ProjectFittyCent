@@ -36,7 +36,7 @@ namespace FittyCent.Web.Models {
         [Display(Name = "Has Insurance?")]
         public bool IsInsured { get; set; }
 
-        [Display(Name = "Registrations (comma seperated)")]
+        [Display(Name = "Associations (comma seperated)")]
         public string Registrations { get; set; }
 
         [Display(Name = "Specialisations (comma seperated)")]
