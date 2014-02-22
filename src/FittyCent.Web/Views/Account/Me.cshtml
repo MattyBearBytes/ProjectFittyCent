@@ -1,6 +1,24 @@
-﻿@{
+﻿@using FittyCent.Domain
+@model FittyCent.Web.Models.UserAccountModel
+@{
     ViewBag.Title = "My Account";
 }
 
-<h2>Manage</h2>
-
+<div class="body-content">
+    <h2>My Account</h2>
+    @Html.RowDisplayFor(m => m.UserName)
+    @Html.RowDisplayFor(m => m.UserType)
+    @Html.RowDisplayFor(m => m.Email)
+    @Html.RowDisplayFor(m => m.FirstName, "String_NotSupplied")
+    @Html.RowDisplayFor(m => m.Surname, "String_NotSupplied")
+    @Html.RowDisplayFor(m => m.Postcode, "String_NotSupplied")
+    @if ( Model.UserType == UserType.Trainer ) {
+        <hr />
+        @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
+        @Html.RowDisplayFor(m => m.IsInsured, "Bool_NotSupplied")
+        @Html.RowDisplayFor(m => m.HasMobileServiceAvailable, "Bool_NotSupplied")
+        @Html.RowDisplayFor(m => m.Registrations, "StringArray")
+        @Html.RowDisplayFor(m => m.Qualifications, "StringArray")
+        @Html.RowDisplayFor(m => m.Specialisations, "StringArray")
+    }
+</div>

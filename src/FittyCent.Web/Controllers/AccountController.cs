@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using FittyCent.Data;
 using FittyCent.Domain;
 using Microsoft.AspNet.Identity;
@@ -223,7 +224,13 @@ namespace FittyCent.Web.Controllers {
 
         [HttpGet]
         public ActionResult Me() {
-            return View();
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if ( user.TrainerProfile == null ) {
+                user.TrainerProfile = new TrainerProfile();
+            }
+
+            var model = Mapper.Map< UserAccountModel>(user);
+            return View(model);
         }
 
         protected override void Dispose(bool disposing) {

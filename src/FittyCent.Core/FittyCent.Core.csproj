@@ -66,6 +66,7 @@
     <Compile Include="Data\Mappings\UserAccountMapping.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Domain\TrainerProfile.cs" />
     <Compile Include="Domain\UserAccount.cs" />
     <Compile Include="Domain\UserType.cs" />
     <Compile Include="Migrations\201402220451176_initial.cs" />

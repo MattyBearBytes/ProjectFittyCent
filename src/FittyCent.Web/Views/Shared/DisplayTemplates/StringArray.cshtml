@@ -1,0 +1,13 @@
+﻿@model string[]
+
+@if ( Model == null || !Model.Any() ) {
+    <i class="small">not supplied</i>
+} else {
+    <ul>
+        @foreach ( var s in Model ) {
+            <li>
+                @s
+            </li>
+        }
+    </ul>
+}
