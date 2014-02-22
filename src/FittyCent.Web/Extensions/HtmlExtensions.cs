@@ -35,9 +35,9 @@ namespace FittyCent.Web {
             return CreateEditorFor(html, expression, html.TextAreaFor);
         }
 
-        //public static MvcHtmlString FormGroupCheckBoxFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression) {
-        //    return CreateEditorFor(html, expression, html.CheckBoxFor(expression,));
-        //}
+        public static MvcHtmlString FormGroupCheckBoxFor<TModel>(this HtmlHelper<TModel> html, Expression<Func<TModel, bool>> expression) {
+            return CreateEditorFor(html, expression, html.CheckBoxFor);
+        }
 
         public static MvcHtmlString FormGroupDropDownFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression, SelectList selectList) {
             return FormGroupDropDownFor(html, expression, selectList, null);

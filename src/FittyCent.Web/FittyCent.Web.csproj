@@ -262,7 +262,6 @@
     <Content Include="Views\Shared\DisplayTemplates\Bool_NotSupplied.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\String_NotSupplied.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StringArray.cshtml" />
-    <Content Include="Views\Me.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
