@@ -65,15 +65,15 @@ namespace FittyCent.Web.Controllers {
                 if ( result.Succeeded ) {
                     await SignInAsync(user, isPersistent: false);
 
-                    var mailMessage = new MailMessage();
-                    mailMessage.To.Add("yourEmail@hotmail.co.uk");
-                    mailMessage.Subject = "testing 2 ";
-                    mailMessage.Body = RenderWelcomeEmail(model);
-                    mailMessage.IsBodyHtml = true;
-                    var smptClient = new SmtpClient { EnableSsl = false };
-                    smptClient.Send(mailMessage);
+                    //var mailMessage = new MailMessage();
+                    //mailMessage.To.Add("yourEmail@hotmail.co.uk");
+                    //mailMessage.Subject = "testing 2 ";
+                    //mailMessage.Body = RenderWelcomeEmail(model);
+                    //mailMessage.IsBodyHtml = true;
+                    //var smptClient = new SmtpClient { EnableSsl = false };
+                    //smptClient.Send(mailMessage);
 
-                    return RedirectToAction("MyAccount", "Account");
+                    return RedirectToAction("Profile", "Account");
                 } else {
                     AddErrors(result);
                 }
@@ -83,11 +83,9 @@ namespace FittyCent.Web.Controllers {
             return View(model);
         }
 
-        public string RenderWelcomeEmail(object model)
-        {
+        public string RenderWelcomeEmail(object model) {
             ViewData.Model = model;
-            using (var sw = new StringWriter())
-            {
+            using ( var sw = new StringWriter() ) {
                 var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, "WelcomeEmail");
                 var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
                 viewResult.View.Render(viewContext, sw);
@@ -270,8 +268,7 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpGet]
-        public ActionResult Classes()
-        {
+        public ActionResult Classes() {
             return View();
         }
 
@@ -309,19 +306,16 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpPost]
-        public ActionResult EditSettings(EditUserAccountModel model)
-        {
+        public ActionResult EditSettings(EditUserAccountModel model) {
             return View(Edit(model));
         }
 
         [HttpPost]
-        public ActionResult EditProfile(EditUserAccountModel model)
-        {
+        public ActionResult EditProfile(EditUserAccountModel model) {
             return View(Edit(model));
         }
 
-        private EditUserAccountModel Edit(EditUserAccountModel model)
-        {
+        private EditUserAccountModel Edit(EditUserAccountModel model) {
             if ( ModelState.IsValid ) {
                 var user = UserManager.FindById(User.Identity.GetUserId());
 
