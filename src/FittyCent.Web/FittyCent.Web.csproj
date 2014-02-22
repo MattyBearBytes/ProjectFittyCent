@@ -193,6 +193,7 @@
     <Compile Include="Models\Account\LoginViewModel.cs" />
     <Compile Include="Models\Account\ChangePassword.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\EditUserAccountModel.cs" />
     <Compile Include="Models\Account\UserAccountModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -261,6 +262,8 @@
     <Content Include="Views\Shared\DisplayTemplates\Bool_NotSupplied.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\String_NotSupplied.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StringArray.cshtml" />
+    <Content Include="Views\Me.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

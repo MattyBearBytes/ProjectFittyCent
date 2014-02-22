@@ -229,7 +229,18 @@ namespace FittyCent.Web.Controllers {
                 user.TrainerProfile = new TrainerProfile();
             }
 
-            var model = Mapper.Map< UserAccountModel>(user);
+            var model = Mapper.Map<UserAccountModel>(user);
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Edit() {
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if ( user.TrainerProfile == null ) {
+                user.TrainerProfile = new TrainerProfile();
+            }
+
+            var model = Mapper.Map<EditUserAccountModel>(user);
             return View(model);
         }
 

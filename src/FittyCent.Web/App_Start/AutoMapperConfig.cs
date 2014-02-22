@@ -16,6 +16,16 @@ namespace FittyCent.Web {
                 .ForMember(dst => dst.Specialisations, map => map.MapFrom(src => SplitData(src.TrainerProfile.Specialisations)))
                 .ForMember(dst => dst.Qualifications, map => map.MapFrom(src => SplitData(src.TrainerProfile.Qualifications)))
                 .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName));
+
+            Mapper.CreateMap<UserAccount, EditUserAccountModel>()
+                .ForMember(dst => dst.HasMobileServiceAvailable,
+                    map => map.MapFrom(src => src.TrainerProfile.HasMobileServiceAvailable))
+                .ForMember(dst => dst.IsInsured, map => map.MapFrom(src => src.TrainerProfile.IsInsured))
+                .ForMember(dst => dst.Summary, map => map.MapFrom(src => src.TrainerProfile.Summary))
+                .ForMember(dst => dst.Registrations, map => map.MapFrom(src => src.TrainerProfile.Registrations))
+                .ForMember(dst => dst.Specialisations, map => map.MapFrom(src => src.TrainerProfile.Specialisations))
+                .ForMember(dst => dst.Qualifications, map => map.MapFrom(src => src.TrainerProfile.Qualifications))
+                .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName));
         }
 
         private static IEnumerable<string> SplitData(string toSplit) {

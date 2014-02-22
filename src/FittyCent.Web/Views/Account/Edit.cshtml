@@ -1,0 +1,26 @@
+﻿@using FittyCent.Domain
+@model FittyCent.Web.Models.EditUserAccountModel
+@{
+    ViewBag.Title = "My Account";
+}
+
+<div class="body-content">
+    <h2>Edit Account</h2>
+    @Html.FormGroupDisplayFor(m => m.UserName)
+    @Html.FormGroupDisplayFor(m => m.UserType)
+    @Html.FormGroupDisplayFor(m => m.Email)
+    @Html.FormGroupTextBoxFor(m => m.FirstName)
+    @Html.FormGroupTextBoxFor(m => m.Surname)
+    @Html.FormGroupTextBoxFor(m => m.Postcode)
+    @if ( Model.UserType == UserType.Trainer ) {
+        <hr />
+        @Html.FormGroupTextAreaFor(m => m.Summary)
+        @Html.FormGroupCheckBoxFor(m => m.IsInsured)
+        @Html.FormGroupCheckBoxFor(m => m.HasMobileServiceAvailable)
+        @Html.FormGroupTextAreaFor(m => m.Registrations)
+        @Html.FormGroupTextAreaFor(m => m.Qualifications)
+        @Html.FormGroupTextAreaFor(m => m.Specialisations)
+    }
+    <hr />
+    @Html.ActionLink("Edit", "Edit", "Account")
+</div>
