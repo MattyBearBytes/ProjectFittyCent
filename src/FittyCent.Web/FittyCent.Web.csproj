@@ -183,6 +183,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -248,7 +249,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
@@ -266,9 +267,9 @@
     <Content Include="Views\Shared\DisplayTemplates\String_NotSupplied.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\StringArray.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
-    <Content Include="Views\Home\PersonalTrainers.cshtml" />
-    <Content Include="Views\Home\Councils.cshtml" />
-    <Content Include="Views\Home\Participants.cshtml" />
+    <Content Include="Views\About\PersonalTrainers.cshtml" />
+    <Content Include="Views\About\Councils.cshtml" />
+    <Content Include="Views\About\Participants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
