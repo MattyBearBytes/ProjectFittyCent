@@ -1,8 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FittyCent.Web.Models
-{
-    public class ManageUserViewModel {
+namespace FittyCent.Web.Models {
+    public class ChangePassword {
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Current password")]

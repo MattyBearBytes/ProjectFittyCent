@@ -79,10 +79,10 @@ namespace FittyCent.Web.Controllers {
             } else {
                 message = ManageMessageId.Error;
             }
-            return RedirectToAction("Manage", new { Message = message });
+            return RedirectToAction("ChangePassword", new { Message = message });
         }
 
-        public ActionResult Manage(ManageMessageId? message) {
+        public ActionResult ManageAccess(ManageMessageId? message) {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
@@ -90,20 +90,20 @@ namespace FittyCent.Web.Controllers {
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.ReturnUrl = Url.Action("ManageAccess");
             return View();
         }
 
         [HttpPost]
-        public async Task<ActionResult> Manage(ManageUserViewModel model) {
+        public async Task<ActionResult> ManageAccess(ChangePassword model) {
             bool hasPassword = HasPassword();
             ViewBag.HasLocalPassword = hasPassword;
-            ViewBag.ReturnUrl = Url.Action("Manage");
+            ViewBag.ReturnUrl = Url.Action("ManageAccess");
             if ( hasPassword ) {
                 if ( ModelState.IsValid ) {
                     IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
                     if ( result.Succeeded ) {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                        return RedirectToAction("ManageAccess", new { Message = ManageMessageId.ChangePasswordSuccess });
                     } else {
                         AddErrors(result);
                     }
@@ -118,7 +118,7 @@ namespace FittyCent.Web.Controllers {
                 if ( ModelState.IsValid ) {
                     IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
                     if ( result.Succeeded ) {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
+                        return RedirectToAction("ManageAccess", new { Message = ManageMessageId.SetPasswordSuccess });
                     } else {
                         AddErrors(result);
                     }
@@ -165,20 +165,20 @@ namespace FittyCent.Web.Controllers {
         public async Task<ActionResult> LinkLoginCallback() {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
             if ( loginInfo == null ) {
-                return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
+                return RedirectToAction("ManageAccess", new { Message = ManageMessageId.Error });
             }
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             if ( result.Succeeded ) {
-                return RedirectToAction("Manage");
+                return RedirectToAction("ManageAccess");
             }
-            return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
+            return RedirectToAction("ManageAccess", new { Message = ManageMessageId.Error });
         }
 
         [HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) {
             if ( User.Identity.IsAuthenticated ) {
-                return RedirectToAction("Manage");
+                return RedirectToAction("ManageAccess");
             }
 
             if ( ModelState.IsValid ) {
@@ -219,6 +219,11 @@ namespace FittyCent.Web.Controllers {
             var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return (ActionResult) PartialView("_RemoveAccountPartial", linkedAccounts);
+        }
+
+        [HttpGet]
+        public ActionResult Me() {
+            return View();
         }
 
         protected override void Dispose(bool disposing) {
