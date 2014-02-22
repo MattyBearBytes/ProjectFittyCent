@@ -16,7 +16,7 @@
         @Html.HiddenFor(m => m.Email)
         @Html.FormGroupTextBoxFor(m => m.FirstName)
         @Html.FormGroupTextBoxFor(m => m.Surname)
-        @Html.FormGroupTextBoxFor(m => m.Postcode)
+        @Html.HiddenFor(m => m.Postcode)
 
         @Html.HiddenFor(m => m.Summary, "String_NotSupplied")
         @Html.HiddenFor(m => m.CompanyName, "String_NotSupplied")

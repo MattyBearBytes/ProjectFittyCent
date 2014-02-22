@@ -13,8 +13,6 @@ namespace FittyCent.Web.Models {
         public string FirstName { get; set; }
         [Display(Name = "Surname")]
         public string Surname { get; set; }
-        [Display(Name = "Postcode")]
-        public string Postcode { get; set; }
 
         [Display(Name = "Bio")]
         public string Summary { get; set; }
