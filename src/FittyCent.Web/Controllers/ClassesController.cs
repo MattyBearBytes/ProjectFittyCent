@@ -5,6 +5,7 @@ using AutoMapper.QueryableExtensions;
 using FittyCent.Data;
 using FittyCent.Domain;
 using FittyCent.Web.Models.Classes;
+using Microsoft.AspNet.Identity;
 
 namespace FittyCent.Web.Controllers {
     [Authorize]
@@ -38,6 +39,9 @@ namespace FittyCent.Web.Controllers {
                 var trainerClass = new TrainerClass();
 
                 Mapper.Map(model, trainerClass);
+                var userAccount = _unitOfWork.Repository.Attach(new UserAccount { Id = User.Identity.GetUserId() });
+
+                trainerClass.User = userAccount;
 
                 _unitOfWork.Repository.Add(trainerClass);
                 _unitOfWork.Save();
