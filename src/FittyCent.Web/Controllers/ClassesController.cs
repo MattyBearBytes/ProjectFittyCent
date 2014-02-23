@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Security.Cryptography;
 using System.Web.Mvc;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -18,7 +19,14 @@ namespace FittyCent.Web.Controllers {
 
         [HttpGet]
         public ActionResult Index() {
-            return View();
+            var query = _unitOfWork.Repository.Query<TrainerClass>();
+            var userId = User.Identity.GetUserId();
+
+            var models = ( from c in query
+                           where c.User.Id == userId
+                           select c ).Project().To<TrainerClassModel>().ToArray();
+
+            return View(models);
         }
 
         [HttpGet]

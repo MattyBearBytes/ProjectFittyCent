@@ -35,8 +35,7 @@ namespace FittyCent.Web.Controllers {
         }
 
         [AllowAnonymous]
-        public ActionResult RegisterMailchimp()
-        {
+        public ActionResult RegisterMailchimp() {
             return Redirect("http://eepurl.com/OZO0f");
         }
 
@@ -323,7 +322,7 @@ namespace FittyCent.Web.Controllers {
             return RedirectToAction("Profile");
         }
 
-        private EditUserAccountModel Edit(EditUserAccountModel model) {
+        private void Edit(EditUserAccountModel model) {
             if ( ModelState.IsValid ) {
                 var user = UserManager.FindById(User.Identity.GetUserId());
 
@@ -345,12 +344,11 @@ namespace FittyCent.Web.Controllers {
                     trainerProfile.Specialisations = model.Specialisations;
                     trainerProfile.Qualifications = model.Qualifications;
                     trainerProfile.HasMobileServiceAvailable = model.HasMobileServiceAvailable;
-
-                    UserManager.Update(user);
                 }
+                UserManager.Update(user);
             }
 
-            return model;
+            return;
         }
 
         protected override void Dispose(bool disposing) {

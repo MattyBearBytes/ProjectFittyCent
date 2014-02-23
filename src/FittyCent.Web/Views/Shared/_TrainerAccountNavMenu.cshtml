@@ -1,7 +1,7 @@
 ﻿@using FittyCent
 <ul class="nav nav-tabs">
     @if ( User.IsInRole(Constants.Roles.Trainer) ) {
-        <li>@Html.ActionLink("My Classes", "Classes", "Account")</li>
+        <li>@Html.ActionLink("My Classes", "Index", "Classes")</li>
     }
 
     <li>@Html.ActionLink("Profile", "Profile", "Account")</li>
