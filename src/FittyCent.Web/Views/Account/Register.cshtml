@@ -21,7 +21,7 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.UserType, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" })
                 <div class="col-md-6 col-sm-8 col-xs-12">
-                    @Html.EnumDropDownListFor(m => m.UserType, "-- Pick User Type --", new { @class = "form-control" })
+                    @Html.EnumDropDownListFor(m => m.UserType, "-- Pick A User Type --", new { @class = "form-control" })
                     @Html.ValidationMessageFor(m => m.UserType)
                 </div>
             </div>
