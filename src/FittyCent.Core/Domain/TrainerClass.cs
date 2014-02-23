@@ -8,10 +8,10 @@ namespace FittyCent.Domain {
         public virtual string Type { get; set; }
         public virtual string Keywords { get; set; }
         public virtual UserAccount User { get; set; }
-        //public virtual ICollection<Session> Sessions { get; private set; }
+        public virtual ICollection<Session> Sessions { get; private set; }
 
-        //public TrainerClass() {
-        //    Sessions = new List<Session>();
-        //}
+        public TrainerClass() {
+            Sessions = new List<Session>();
+        }
     }
 }

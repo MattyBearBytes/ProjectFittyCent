@@ -10,6 +10,5 @@ namespace FittyCent.Domain {
         public virtual Audience Audience { get; set; }
         public virtual string Address { get; set; }
         public virtual string Postcode { get; set; }
-        //public virtual int TrainerClassId { get; set; }
     }
 }
