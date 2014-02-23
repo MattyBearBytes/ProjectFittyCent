@@ -20,6 +20,15 @@ namespace FittyCent.Data.Mappings {
 
             Property(x => x.Audience)
                 .IsRequired();
+
+            Property(x => x.Address)
+                .IsOptional()
+                .HasMaxLength(512);
+
+            Property(x => x.Postcode)
+                .IsRequired()
+                .HasMaxLength(20);
+
         }
     }
 }

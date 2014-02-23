@@ -2,6 +2,8 @@
 
 namespace FittyCent.Web {
     public class Hacks {
+        public static IUnitOfWork UnitOfWork { get; set; }
+
         public static IUnitOfWork CreateUnitOfWork() {
             var context = new FitnessContext();
             var repository = new Repository(context);

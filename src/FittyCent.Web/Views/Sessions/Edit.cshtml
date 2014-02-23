@@ -1,11 +1,11 @@
-﻿@model FittyCent.Web.Models.TrainerClassModel
+﻿@model FittyCent.Web.Models.SessionModel
 @{
-    ViewBag.Title = "Edit Class";
+    ViewBag.Title = "Edit Session";
 }
 
 <div class="body-content">
-    <h2>Edit Class</h2>
-    @using ( Html.BeginForm("Edit", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
+    <h2>Create Session for @Model.TrainerClassTitle</h2>
+    @using ( Html.BeginForm("Edit", "Sessions", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
         @Html.HiddenFor(m => m.Id)
         @Html.EditorForModel()
         <div class="form-group">
@@ -16,6 +16,6 @@
     }
     <hr />
     <div>
-        @Html.ActionLink("Cancel", "Details", "Classes", new { Model.Id }, null)
+        @Html.ActionLink("Cancel", "Details", "Sessions", new { id = Model.Id }, null)
     </div>
 </div>

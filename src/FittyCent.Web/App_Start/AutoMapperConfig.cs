@@ -29,10 +29,18 @@ namespace FittyCent.Web {
                 .ForMember(dst => dst.CompanyName, map => map.MapFrom(src => src.TrainerProfile.CompanyName))
                 .ForMember(dst => dst.CompanyWebsite, map => map.MapFrom(src => src.TrainerProfile.CompanyWebsite));
 
+            Mapper.CreateMap<Session, SessionModel>()
+                //.ForMember(dst => dst.TrainerClassId, map => map.MapFrom(src => src.TrainerClassId))
+                .ForMember(dst => dst.TrainerClassTitle, map => map.Ignore());
+
+            Mapper.CreateMap<SessionModel, Session>()
+                .ForMember(dst => dst.Id, map => map.Ignore())
+                .ForMember(dst => dst.VenueType, map => map.MapFrom(src => src.VenueType.GetValueOrDefault()));
+
             Mapper.CreateMap<TrainerClass, TrainerClassModel>();
 
             Mapper.CreateMap<TrainerClassModel, TrainerClass>()
-                .ForMember(dst => dst.Sessions, map => map.Ignore())
+                //.ForMember(dst => dst.Sessions, map => map.Ignore())
                 .ForMember(dst => dst.Id, map => map.Ignore());
 
         }

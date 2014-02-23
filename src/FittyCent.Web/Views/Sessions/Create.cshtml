@@ -1,0 +1,20 @@
+﻿@model FittyCent.Web.Models.SessionModel
+@{
+    ViewBag.Title = "Create Session";
+}
+
+<div class="body-content">
+    <h2>Create Session for @Model.TrainerClassTitle</h2>
+    @using ( Html.BeginForm("Create", "Sessions", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
+        @Html.EditorForModel()
+        <div class="form-group">
+            <div class="col-md-6 col-lg-offset-3 col-sm-8 col-xs-12">
+                <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+            </div>
+        </div>
+    }
+    <hr />
+    <div>
+        @Html.ActionLink("Cancel", "Details", "Classes", new { id = Model.TrainerClassId }, null)
+    </div>
+</div>

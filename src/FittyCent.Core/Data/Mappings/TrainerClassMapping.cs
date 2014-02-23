@@ -21,8 +21,10 @@ namespace FittyCent.Data.Mappings {
                 .IsRequired()
                 .IsMaxLength();
 
-            HasMany(x => x.Sessions)
-                .WithRequired();
+            //HasMany(x => x.Sessions)
+            //    .WithRequired()
+            //    .HasForeignKey(x => x.TrainerClassId)
+            //    .WillCascadeOnDelete(false);
         }
     }
 }

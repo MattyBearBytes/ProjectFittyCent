@@ -8,6 +8,8 @@ namespace FittyCent.Domain {
         public virtual int ClassLimit { get; set; }
         public virtual VenueType VenueType { get; set; }
         public virtual Audience Audience { get; set; }
-        public virtual TrainerClass Class { get; set; }
+        public virtual string Address { get; set; }
+        public virtual string Postcode { get; set; }
+        //public virtual int TrainerClassId { get; set; }
     }
 }

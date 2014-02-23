@@ -1,0 +1,22 @@
+﻿@model FittyCent.Web.Models.SessionModel
+
+@Html.HiddenFor(m => m.TrainerClassId)
+@Html.HiddenFor(m => m.TrainerClassTitle)
+@Html.FormGroupTextBoxFor(x => x.Address)
+@Html.FormGroupTextBoxFor(x => x.Postcode)
+@Html.FormGroupTextBoxFor(x => x.DateTime)
+@Html.FormGroupTextBoxFor(x => x.Price)
+@Html.FormGroupTextBoxFor(x => x.ClassLimit)
+<div class="form-group">
+    @Html.LabelFor(m => m.VenueType, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" })
+    <div class="col-md-6 col-sm-8 col-xs-12">
+        @Html.EnumDropDownListFor(m => m.VenueType, "-- pick venue --")
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.Audience, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" })
+    <div class="col-md-6 col-sm-8 col-xs-12">
+        @Html.EnumDropDownListFor(m => m.Audience)
+    </div>
+</div>
+

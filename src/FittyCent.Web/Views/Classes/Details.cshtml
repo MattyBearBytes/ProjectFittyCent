@@ -12,5 +12,7 @@
         @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
         @Html.RowDisplayFor(m => m.Keywords, "String_NotSupplied")
         @Html.ActionLink("Edit Class", "Edit", "Classes", new { Model.Id }, new { @class = "btn btn-sm btn-primary" })
+        @Html.ActionLink("Add Session", "Create", "Sessions", new { Model.Id }, new { @class = "btn btn-sm btn-primary" })
     </div>
+
 </div>

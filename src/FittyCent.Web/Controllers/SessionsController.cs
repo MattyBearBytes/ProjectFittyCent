@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using FittyCent.Data;
 using FittyCent.Domain;
 using FittyCent.Web.Models;
+using WebGrease.Css;
 
 namespace FittyCent.Web.Controllers {
     public class SessionsController : Controller {
@@ -31,8 +33,19 @@ namespace FittyCent.Web.Controllers {
         }
 
         [HttpGet, Authorize(Roles = Constants.Roles.Trainer)]
-        public ActionResult Create() {
-            return View();
+        public ActionResult Create(int id) {
+            var trainerClass = _unitOfWork.Repository.Find<TrainerClass>(id);
+
+            if ( null == trainerClass ) {
+                return RedirectToAction("Index", "Classes");
+            }
+
+            var defaultTime = DateTime.Now.Date.AddHours(12);
+            if ( defaultTime < DateTime.Now ) {
+                defaultTime = defaultTime.AddDays(1);
+            }
+
+            return View(new SessionModel { TrainerClassId = id, TrainerClassTitle = trainerClass.Title, DateTime = defaultTime });
         }
 
         [HttpPost, Authorize(Roles = Constants.Roles.Trainer)]
@@ -41,14 +54,12 @@ namespace FittyCent.Web.Controllers {
                 var session = new Session();
 
                 Mapper.Map(model, session);
-                var trainerClass = _unitOfWork.Repository.Attach(new TrainerClass { Id = model.TrainerClassId });
+                var trainerClass = _unitOfWork.Repository.Find<TrainerClass>(model.TrainerClassId);
 
-                session.Class = trainerClass;
-
-                _unitOfWork.Repository.Add(session);
+                //trainerClass.Sessions.Add(session);
                 _unitOfWork.Save();
 
-                return RedirectToAction("Details", new { session.Id });
+                return RedirectToAction("Details", "Classes", new { id = trainerClass.Id });
             }
 
             return View(model);
@@ -84,6 +95,10 @@ namespace FittyCent.Web.Controllers {
             var model = ( from p in query
                           where p.Id == id
                           select p ).Project().To<SessionModel>().SingleOrDefault();
+
+            var trainerClass = _unitOfWork.Repository.Find<TrainerClass>(model.TrainerClassId);
+
+            model.TrainerClassTitle = trainerClass.Title;
             return model;
         }
     }
