@@ -20,9 +20,6 @@ namespace FittyCent.Data.Mappings {
             Property(x => x.Keywords)
                 .IsRequired()
                 .IsMaxLength();
-
-            //HasMany(x => x.Sessions)
-            //    .WithRequired();
         }
     }
 }

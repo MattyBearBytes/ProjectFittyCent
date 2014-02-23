@@ -26,6 +26,6 @@ namespace FittyCent.Web.Models {
         public VenueType? VenueType { get; set; }
 
         [Required, Display(Name = "Target Audience")]
-        public Audience? Audience { get; set; }
+        public Audience Audience { get; set; }
     }
 }
