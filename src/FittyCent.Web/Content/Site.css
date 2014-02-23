@@ -41,6 +41,7 @@ textarea {
 /* styles for validation helpers */
 .field-validation-error {
     color: #b94a48;
+    font-size: 12px;
 }
 
 .field-validation-valid {
@@ -103,6 +104,10 @@ input[type="checkbox"].input-validation-error {
 .edit-container .form-group input[type=checkbox] {
     margin-left: 15px;
 }
-.field-validation-error {
-    font-size: 12px;
+.tagline {
+    text-align: center;
+    margin: 5% 0 0 0;
+    font-size: 2em;
+    color: antiquewhite;
+    text-shadow: 1px 1px #222121;
 }
