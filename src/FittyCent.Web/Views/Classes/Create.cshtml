@@ -2,20 +2,18 @@
 @{
     ViewBag.Title = "Create Class";
 }
-
+@Html.Partial("_TrainerAccountNavMenu")
 <div class="body-content">
-    @Html.Partial("_TrainerAccountNavMenu")
-    <h2>Create Class</h2>
-    @using ( Html.BeginForm("Create", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
-        @Html.EditorForModel()
-        <div class="form-group">
-            <div class="col-md-6 col-lg-offset-3 col-sm-8 col-xs-12">
-                <input type="submit" value="Create" class="btn btn-sm btn-primary" />
-            </div>
+    <div class="edit-container">
+        <h2>Create Class</h2>
+        @using (Html.BeginForm("Create", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+        {
+            @Html.EditorForModel()
+            <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+        }
+        <hr />
+        <div>
+            @Html.ActionLink("Cancel", "Index", "Classes")
         </div>
-    }
-    <hr />
-    <div>
-        @Html.ActionLink("Cancel", "Index", "Classes")
     </div>
 </div>

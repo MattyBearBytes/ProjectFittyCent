@@ -2,9 +2,8 @@
 @{
     ViewBag.Title = "Edit Class";
 }
-
+@Html.Partial("_TrainerAccountNavMenu")
 <div class="body-content">
-    @Html.Partial("_TrainerAccountNavMenu")
     <h2>My Classes</h2>
 
     @Html.ActionLink("Post A Class", "Create", "Classes", null, new { @class = "btn btn-sm btn-primary" })

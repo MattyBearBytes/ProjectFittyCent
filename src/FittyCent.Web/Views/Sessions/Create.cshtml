@@ -2,19 +2,23 @@
 @{
     ViewBag.Title = "Create Session";
 }
-
+@Html.Partial("_TrainerAccountNavMenu")
 <div class="body-content">
-    <h2>Create Session for @Model.TrainerClassTitle</h2>
-    @using ( Html.BeginForm("Create", "Sessions", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
-        @Html.EditorForModel()
-        <div class="form-group">
-            <div class="col-md-6 col-lg-offset-3 col-sm-8 col-xs-12">
-                <input type="submit" value="Create" class="btn btn-sm btn-primary" />
-            </div>
+    <div class="edit-container">
+        <h2>Create Session for @Model.TrainerClassTitle</h2>
+        @using (Html.BeginForm("Create", "Sessions", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+        {
+            @Html.EditorForModel()
+            <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+        }
+        <hr />
+        <div>
+            @Html.ActionLink("Cancel", "Details", "Classes", new { id = Model.TrainerClassId }, null)
         </div>
-    }
-    <hr />
-    <div>
-        @Html.ActionLink("Cancel", "Details", "Classes", new { id = Model.TrainerClassId }, null)
     </div>
 </div>
+@section scripts
+{
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+    <script src="~/Scripts/address-autocomplete.js"></script>
+}

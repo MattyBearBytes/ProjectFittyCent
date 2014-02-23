@@ -5,8 +5,8 @@
 }
 @Html.Partial("_TrainerAccountNavMenu")
 <div class="body-content">
-    <h2>Edit Account Settings</h2>
     <div class="edit-container">
+        <h2>Edit Account Settings</h2>
         @using (Html.BeginForm("EditSettings", "Account", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
         {
             @Html.FormGroupDisplayFor(m => m.UserName)

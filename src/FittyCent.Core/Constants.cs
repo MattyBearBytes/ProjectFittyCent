@@ -12,8 +12,10 @@
         {
             "Bootcamp",
             "Boxing",
+            "Circuit Training",
             "Crossfit",
             "Core Training",
+            "Endurance Training",
             "Mums & Bubs",
             "Kids Classes",
             "Over 50s",

@@ -2,7 +2,13 @@
 
 @Html.HiddenFor(m => m.TrainerClassId)
 @Html.HiddenFor(m => m.TrainerClassTitle)
-@Html.FormGroupTextBoxFor(x => x.Address)
+<div class="form-group">
+    <label for="Address" class="control-label col-md-3 col-sm-4 col-xs-12">Address</label>
+    <div class="col-md-6 col-sm-8 col-xs-12">
+        <input type="text" value="" name="Address" id="Address" class="form-control" placeholder="">
+        <span data-valmsg-replace="true" data-valmsg-for="Address" class="field-validation-valid"></span>
+    </div>
+</div>
 @Html.FormGroupTextBoxFor(x => x.Postcode)
 @Html.FormGroupTextBoxFor(x => x.DateTime)
 @Html.FormGroupTextBoxFor(x => x.Price)
@@ -10,7 +16,7 @@
 <div class="form-group">
     @Html.LabelFor(m => m.VenueType, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" })
     <div class="col-md-6 col-sm-8 col-xs-12">
-        @Html.EnumDropDownListFor(m => m.VenueType, "-- pick venue --")
+        @Html.EnumDropDownListFor(m => m.VenueType, "-- Pick a venue --")
     </div>
 </div>
 <div class="form-group">

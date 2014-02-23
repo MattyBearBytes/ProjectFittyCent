@@ -2,21 +2,20 @@
 @{
     ViewBag.Title = "Edit Class";
 }
-
+@Html.Partial("_TrainerAccountNavMenu")
 <div class="body-content">
-    @Html.Partial("_TrainerAccountNavMenu")
-    <h2>Edit Class</h2>
-    @using ( Html.BeginForm("Edit", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
-        @Html.HiddenFor(m => m.Id)
-        @Html.EditorForModel()
-        <div class="form-group">
-            <div class="col-md-6 col-lg-offset-3 col-sm-8 col-xs-12">
-                <input type="submit" value="Save" class="btn btn-sm btn-primary" />
-            </div>
+    <div class="edit-container">
+
+        <h2>Edit Class</h2>
+        @using (Html.BeginForm("Edit", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
+        {
+            @Html.HiddenFor(m => m.Id)
+            @Html.EditorForModel()
+            <input type="submit" value="Save" class="btn btn-sm btn-primary" />
+        }
+        <hr />
+        <div>
+            @Html.ActionLink("Cancel", "Details", "Classes", new { Model.Id }, null)
         </div>
-    }
-    <hr />
-    <div>
-        @Html.ActionLink("Cancel", "Details", "Classes", new { Model.Id }, null)
     </div>
 </div>
