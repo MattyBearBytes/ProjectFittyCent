@@ -7,9 +7,9 @@
 <div class="body-content">
     <h2>My Profile</h2>
     <div class="readonly-container">
+        @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
         @if (Model.UserType == UserType.Trainer)
         {
-            @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
             @Html.RowDisplayFor(m => m.CompanyName, "String_NotSupplied")
             @Html.RowDisplayFor(m => m.CompanyWebsite, "String_NotSupplied")
             @Html.RowDisplayFor(m => m.IsInsured, "Bool_NotSupplied")

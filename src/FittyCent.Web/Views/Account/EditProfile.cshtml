@@ -9,9 +9,9 @@
     <div class="edit-container">
         @using (Html.BeginForm("EditProfile", "Account", FormMethod.Post, new { role = "form", @class = "form-horizontal" }))
         {
+            @Html.FormGroupTextAreaFor(m => m.Summary)
             if (Model.UserType == UserType.Trainer)
             {
-                @Html.FormGroupTextAreaFor(m => m.Summary)
                 @Html.FormGroupTextBoxFor(m => m.CompanyName)
                 @Html.FormGroupTextBoxFor(m => m.CompanyWebsite)
                 <div class="form-group">@Html.LabelFor(m => m.IsInsured, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" }) @Html.CheckBoxFor(m => m.IsInsured) <label for="IsInsured">Yes</label></div>

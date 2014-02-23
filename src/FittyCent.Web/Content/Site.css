@@ -103,3 +103,6 @@ input[type="checkbox"].input-validation-error {
 .edit-container .form-group input[type=checkbox] {
     margin-left: 15px;
 }
+.field-validation-error {
+    font-size: 12px;
+}
