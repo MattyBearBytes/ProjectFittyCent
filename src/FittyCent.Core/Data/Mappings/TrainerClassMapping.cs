@@ -21,8 +21,8 @@ namespace FittyCent.Data.Mappings {
                 .IsRequired()
                 .IsMaxLength();
 
-            HasMany(x => x.Sessions)
-                .WithRequired();
+            //HasMany(x => x.Sessions)
+            //    .WithRequired();
         }
     }
 }
