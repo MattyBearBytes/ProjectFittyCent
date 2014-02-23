@@ -1,9 +1,35 @@
-﻿@model FittyCent.Web.Models.TrainerClassModel
+﻿@model IEnumerable<FittyCent.Web.Models.TrainerClassModel>
 @{
     ViewBag.Title = "Edit Class";
 }
 
 <div class="body-content">
     <h2>My Classes</h2>
+    <table class="table table-hover table-responsive">
+        <tr class="active">
+            <th>
+                Title
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Keywords
+            </th>
+        </tr>
 
+        @foreach ( var classModel in Model ) {
+            <tr>
+                <td>
+                    @Html.ActionLink(classModel.Title, "Details", "classes", new { area = "User", classModel.Id }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => classModel.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => classModel.Keywords)
+                </td>
+            </tr>
+        }
+    </table>
 </div>
