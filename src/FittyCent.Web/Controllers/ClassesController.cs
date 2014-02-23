@@ -4,7 +4,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using FittyCent.Data;
 using FittyCent.Domain;
-using FittyCent.Web.Models.Classes;
+using FittyCent.Web.Models;
 using Microsoft.AspNet.Identity;
 
 namespace FittyCent.Web.Controllers {
@@ -24,6 +24,10 @@ namespace FittyCent.Web.Controllers {
         [HttpGet]
         public ActionResult Details(int id) {
             var model = GetTrainerClassModel(id);
+
+            if ( null == model ) {
+                return RedirectToAction("Index");
+            }
 
             return View(model);
         }
@@ -56,23 +60,24 @@ namespace FittyCent.Web.Controllers {
         public ActionResult Edit(int id) {
             var model = GetTrainerClassModel(id);
 
+            if ( null == model ) {
+                return RedirectToAction("Index");
+            }
+
             return View(model);
         }
 
         [HttpPost, Authorize(Roles = Constants.Roles.Trainer)]
         public ActionResult Edit(TrainerClassModel model) {
             if ( ModelState.IsValid ) {
-                var trainerClass = GetTrainerClassModel(model.Id);
-
+                var trainerClass = _unitOfWork.Repository.Find<TrainerClass>(model.Id);
                 Mapper.Map(model, trainerClass);
-
                 _unitOfWork.Save();
 
                 return RedirectToAction("Details", new { trainerClass.Id });
             }
 
             return View(model);
-
         }
 
         private TrainerClassModel GetTrainerClassModel(int id) {
@@ -80,7 +85,7 @@ namespace FittyCent.Web.Controllers {
 
             var model = ( from p in query
                           where p.Id == id
-                          select p ).Project().To<TrainerClassModel>().Single();
+                          select p ).Project().To<TrainerClassModel>().SingleOrDefault();
             return model;
         }
     }

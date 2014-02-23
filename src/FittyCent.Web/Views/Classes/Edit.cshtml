@@ -1,15 +1,16 @@
 ﻿@model FittyCent.Web.Models.TrainerClassModel
 @{
-    ViewBag.Title = "Create Class";
+    ViewBag.Title = "Edit Class";
 }
 
 <div class="body-content">
     <h2>Create Class</h2>
-    @using ( Html.BeginForm("Create", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
+    @using ( Html.BeginForm("Edit", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
+        @Html.HiddenFor(m => m.Id)
         @Html.EditorForModel()
         <div class="form-group">
             <div class="col-md-6 col-lg-offset-3 col-sm-8 col-xs-12">
-                <input type="submit" value="Create" class="btn btn-sm btn-primary" />
+                <input type="submit" value="Save" class="btn btn-sm btn-primary" />
             </div>
         </div>
     }

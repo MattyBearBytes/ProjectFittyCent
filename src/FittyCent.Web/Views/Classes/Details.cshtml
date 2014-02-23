@@ -1,0 +1,16 @@
+﻿@model FittyCent.Web.Models.TrainerClassModel
+@{
+    ViewBag.Title = "My Classes";
+}
+
+<div class="body-content">
+    <h2>
+        @Model.Title
+    </h2>
+    <div class="readonly-container">
+        @Html.RowDisplayFor(m => m.Type, "String_NotSupplied")
+        @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
+        @Html.RowDisplayFor(m => m.Keywords, "String_NotSupplied")
+        @Html.ActionLink("Edit Class", "Edit", "Classes", new { Model.Id }, new { @class = "btn btn-sm btn-primary" })
+    </div>
+</div>

@@ -3,7 +3,6 @@ using System.Linq;
 using AutoMapper;
 using FittyCent.Domain;
 using FittyCent.Web.Models;
-using FittyCent.Web.Models.Classes;
 
 namespace FittyCent.Web {
     public class AutoMapperConfig {
