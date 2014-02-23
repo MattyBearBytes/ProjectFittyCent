@@ -15,5 +15,7 @@ namespace FittyCent.Web.Models {
 
         [Display(Name = "Keywords (comma separated)")]
         public string Keywords { get; set; }
+
+        public SessionModel[] Sessions { get; set; }
     }
 }

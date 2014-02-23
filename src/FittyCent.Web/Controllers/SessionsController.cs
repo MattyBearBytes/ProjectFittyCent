@@ -56,7 +56,8 @@ namespace FittyCent.Web.Controllers {
                 Mapper.Map(model, session);
                 var trainerClass = _unitOfWork.Repository.Find<TrainerClass>(model.TrainerClassId);
 
-                //trainerClass.Sessions.Add(session);
+                session.TrainerClassId = model.TrainerClassId;
+                _unitOfWork.Repository.Add(session);
                 _unitOfWork.Save();
 
                 return RedirectToAction("Details", "Classes", new { id = trainerClass.Id });

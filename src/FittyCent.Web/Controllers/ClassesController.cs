@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Web.Mvc;
 using AutoMapper;
@@ -37,7 +38,21 @@ namespace FittyCent.Web.Controllers {
                 return RedirectToAction("Index");
             }
 
+            var sessions = GetSessionModels(id);
+
+            model.Sessions = sessions.ToArray();
+
             return View(model);
+        }
+
+        private IEnumerable<SessionModel> GetSessionModels(int id) {
+            var query = _unitOfWork.Repository.Query<Session>();
+
+            var models = ( from s in query
+                           where s.TrainerClassId == id
+                           select s ).Project().To<SessionModel>();
+
+            return models;
         }
 
         [HttpGet, Authorize(Roles = Constants.Roles.Trainer)]

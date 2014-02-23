@@ -30,7 +30,8 @@ namespace FittyCent.Web {
                 .ForMember(dst => dst.CompanyWebsite, map => map.MapFrom(src => src.TrainerProfile.CompanyWebsite));
 
             Mapper.CreateMap<Session, SessionModel>()
-                //.ForMember(dst => dst.TrainerClassId, map => map.MapFrom(src => src.TrainerClassId))
+                .ForMember(dst => dst.TrainerClassId, map => map.MapFrom(src => src.TrainerClassId))
+                .ForMember(dst => dst.Audience, map => map.MapFrom(src => src.Audience))
                 .ForMember(dst => dst.TrainerClassTitle, map => map.Ignore());
 
             Mapper.CreateMap<SessionModel, Session>()
@@ -40,7 +41,6 @@ namespace FittyCent.Web {
             Mapper.CreateMap<TrainerClass, TrainerClassModel>();
 
             Mapper.CreateMap<TrainerClassModel, TrainerClass>()
-                //.ForMember(dst => dst.Sessions, map => map.Ignore())
                 .ForMember(dst => dst.Id, map => map.Ignore());
 
         }

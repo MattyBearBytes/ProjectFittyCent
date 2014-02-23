@@ -111,6 +111,10 @@
     <Compile Include="Migrations\201402230612007_RemoveSessionRelationships.Designer.cs">
       <DependentUpon>201402230612007_RemoveSessionRelationships.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402230805059_AddIdToSession.cs" />
+    <Compile Include="Migrations\201402230805059_AddIdToSession.Designer.cs">
+      <DependentUpon>201402230805059_AddIdToSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserManager.cs" />
@@ -146,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402230612007_RemoveSessionRelationships.resx">
       <DependentUpon>201402230612007_RemoveSessionRelationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402230805059_AddIdToSession.resx">
+      <DependentUpon>201402230805059_AddIdToSession.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

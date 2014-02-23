@@ -28,6 +28,9 @@ namespace FittyCent.Data.Mappings {
             Property(x => x.Postcode)
                 .IsRequired()
                 .HasMaxLength(20);
+
+            Property(x => x.TrainerClassId)
+                .IsRequired();
         }
     }
 }

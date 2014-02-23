@@ -12,6 +12,49 @@
         @Html.RowDisplayFor(m => m.Summary, "String_NotSupplied")
         @Html.RowDisplayFor(m => m.Keywords, "String_NotSupplied")
         @Html.ActionLink("Edit Class", "Edit", "Classes", new { Model.Id }, new { @class = "btn btn-sm btn-primary" })
+        @Html.ActionLink("Add Session", "Create", "Sessions", new { Model.Id }, new { @class = "btn btn-sm btn-primary" })
     </div>
+    @if ( Model.Sessions != null && Model.Sessions.Any() ) {
+        <hr />
+        <table class="table table-hover table-responsive">
+            <tr class="active">
+                <th>
+                    When
+                </th>
+                <th>
+                    Where
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Venue Type
+                </th>
+                <th>
+                    Audience
+                </th>
+            </tr>
+
+            @foreach ( var session in Model.Sessions ) {
+                <tr>
+                    <td>
+                        @Html.ActionLink(session.DateTime.ToString("f"), "Details", "Sessions", new { session.Id }, null)
+                    </td>
+                    <td>
+                        @session.Address @session.Postcode
+                    </td>
+                    <td>
+                        @session.Price
+                    </td>
+                    <td>
+                        @session.VenueType
+                    </td>
+                    <td>
+                        @session.Audience
+                    </td>
+                </tr>
+            }
+        </table>
+    }
 
 </div>
