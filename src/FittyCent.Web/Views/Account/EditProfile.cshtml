@@ -12,10 +12,10 @@
             if (Model.UserType == UserType.Trainer)
             {
                 @Html.FormGroupTextAreaFor(m => m.Summary)
-                @Html.FormGroupCheckBoxFor(m => m.IsInsured)
-                @Html.FormGroupCheckBoxFor(m => m.HasMobileServiceAvailable)
                 @Html.FormGroupTextBoxFor(m => m.CompanyName)
                 @Html.FormGroupTextBoxFor(m => m.CompanyWebsite)
+                <div class="form-group">@Html.LabelFor(m => m.IsInsured, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" }) @Html.CheckBoxFor(m => m.IsInsured) <label for="IsInsured">Yes</label></div>
+                <div class="form-group">@Html.LabelFor(m => m.HasMobileServiceAvailable, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" }) @Html.CheckBoxFor(m => m.HasMobileServiceAvailable) <label for="HasMobileServiceAvailable">Yes</label></div>
                 @Html.FormGroupTextAreaFor(m => m.Registrations)
                 @Html.FormGroupTextAreaFor(m => m.Qualifications)
                 @Html.FormGroupTextAreaFor(m => m.Specialisations)

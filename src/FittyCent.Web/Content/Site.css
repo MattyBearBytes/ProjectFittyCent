@@ -95,6 +95,11 @@ input[type="checkbox"].input-validation-error {
     font-size: 14px;
     width: 15%;
 }
-.edit-container {
-    
+.edit-container .form-group label {
+    text-align: left;
+    font-size: 14px;
+    width: 15%;
+}
+.edit-container .form-group input[type=checkbox] {
+    margin-left: 15px;
 }
