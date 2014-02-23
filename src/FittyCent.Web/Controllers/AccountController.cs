@@ -330,13 +330,15 @@ namespace FittyCent.Web.Controllers {
                 user.Surname = model.Surname;
                 user.Postcode = model.Postcode;
 
-                if ( user.UserType == UserType.Trainer ) {
-                    if ( user.TrainerProfile == null ) {
-                        user.TrainerProfile = new TrainerProfile();
-                    }
-                    var trainerProfile = user.TrainerProfile;
+                if (user.TrainerProfile == null)
+                {
+                    user.TrainerProfile = new TrainerProfile();
+                }
 
-                    trainerProfile.Summary = model.Summary;
+                var trainerProfile = user.TrainerProfile;
+                trainerProfile.Summary = model.Summary;
+                
+                if ( user.UserType == UserType.Trainer ) {
                     trainerProfile.CompanyName = model.CompanyName;
                     trainerProfile.CompanyWebsite = model.CompanyWebsite;
                     trainerProfile.IsInsured = model.IsInsured;
