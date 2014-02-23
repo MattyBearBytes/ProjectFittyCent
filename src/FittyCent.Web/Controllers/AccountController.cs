@@ -34,6 +34,12 @@ namespace FittyCent.Web.Controllers {
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult RegisterMailchimp()
+        {
+            return Redirect("http://eepurl.com/OZO0f");
+        }
+
         [HttpPost]
         [AllowAnonymous]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl) {

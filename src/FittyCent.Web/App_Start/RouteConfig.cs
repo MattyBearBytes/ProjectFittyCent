@@ -9,7 +9,7 @@ namespace FittyCent.Web {
             routes.MapRoute(
                 name: "Register",
                 url: "register",
-                defaults: new { controller = "Account", action = "Register" }
+                defaults: new { controller = "Account", action = "RegisterMailchimp" }
                 );
 
             routes.MapRoute(
