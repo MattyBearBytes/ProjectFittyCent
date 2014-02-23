@@ -2,6 +2,6 @@
 @using FittyCent
 
 @Html.FormGroupTextBoxFor(x => x.Title)
-@Html.FormGroupTextBoxFor(x => x.Summary)
+@Html.FormGroupTextAreaFor(x => x.Summary)
 @Html.FormGroupDropDownFor(x => x.Type, new SelectList(Constants.ClassTypes), "-- Select a Class Type --")
 @Html.FormGroupTextBoxFor(x => x.Keywords)
