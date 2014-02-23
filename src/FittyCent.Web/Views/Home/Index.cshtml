@@ -1,12 +1,13 @@
 ﻿@using FittyCent
 @{
-    ViewBag.Title = "OpenAir Fitness";
+    ViewBag.Title = "Open Air Fitness";
 }
 <div class="splash-container">
     <form class="form-inline search-form" role="form">
         <div class="form-group">
             <label class="sr-only">Where do you want to train?</label>
-            <input type="text" class="form-control location-input" placeholder="Where do you want to train?">
+            @*<input type="text" class="form-control location-input" placeholder="Where do you want to train?">*@
+            <input id="autocomplete" placeholder="Where do you want to train?" onfocus="geolocate()" class="form-control location-input" type="text"/>
 
             @Html.DropDownList("ClassType", new SelectList(Constants.ClassTypes), "Type of Class", new { @class = "form-control" })
 
@@ -37,3 +38,12 @@
         <p>Are you a personal trainer? Advertise and list your classes for free on Open Air Fitness. Get more new clients today!</p>
     </div>
 </div>
+
+@section scripts
+{
+    
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="~/Scripts/address-autocomplete.js"></script>
+
+
+}
