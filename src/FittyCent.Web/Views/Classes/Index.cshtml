@@ -4,8 +4,12 @@
 }
 
 <div class="body-content">
+    @Html.Partial("_TrainerAccountNavMenu")
     <h2>My Classes</h2>
-    @Html.ActionLink("Create Class", "Create", "Classes", null, new { @class = "btn btn-sm btn-primary" })
+
+    @Html.ActionLink("Post A Class", "Create", "Classes", null, new { @class = "btn btn-sm btn-primary" })
+    <br/>
+    <br/>
     <table class="table table-hover table-responsive">
         <tr class="active">
             <th>
@@ -19,7 +23,8 @@
             </th>
         </tr>
 
-        @foreach ( var classModel in Model ) {
+        @foreach (var classModel in Model)
+        {
             <tr>
                 <td>
                     @Html.ActionLink(classModel.Title, "Details", "classes", new { area = "User", classModel.Id }, null)

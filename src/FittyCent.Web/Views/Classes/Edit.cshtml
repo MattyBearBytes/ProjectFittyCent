@@ -4,6 +4,7 @@
 }
 
 <div class="body-content">
+    @Html.Partial("_TrainerAccountNavMenu")
     <h2>Edit Class</h2>
     @using ( Html.BeginForm("Edit", "Classes", FormMethod.Post, new { role = "form", @class = "form-horizontal" }) ) {
         @Html.HiddenFor(m => m.Id)
