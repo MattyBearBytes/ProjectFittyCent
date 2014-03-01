@@ -1,23 +1,38 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
 }
 
-footer {
-    border-top: #CCCCCC solid 1px;
-    margin: 5px 20px;
-    padding-top: 10px;
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
 }
+
+/* Footer Specific */
+#footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* End Footer Specific */
+
 
 /* Bootstrap overrides */
-.container-fluid {
-    padding: 0;
-}
-
-.navbar {
-    box-shadow: 4px 4px 10px #222121;
-}
-
 .nav-tabs {
     margin-top: 20px;
 }
@@ -29,10 +44,9 @@ footer {
 .row-fluid .col-md-4 h2 {
     font-size: 24px;
 }
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+
+.navbar-brand {
+    padding-top: 9px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

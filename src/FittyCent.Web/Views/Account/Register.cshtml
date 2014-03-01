@@ -2,40 +2,47 @@
 @{
     ViewBag.Title = "Register";
 }
-<div class="body-content">
+<div class="container">
     <h2>@ViewBag.Title</h2>
-
-    <div class="col-lg-6">
-        <img alt="Sign Up and Win a Nike Voucher" height="100%" width="100%" src="@Url.Content("~/Content/images/voucher.jpg")" />
-    </div>
-
-    <div class="col-lg-6">
 
         @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
         {
-            <h4>Register a new account.</h4>
-            <hr />
             @Html.ValidationSummary()
+            <div class="col-lg-6">
+                <p>Just a few of the usual questions so you can create your account.</p>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserType, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" })
+                    <div class="col-md-6 col-sm-8 col-xs-12">
+                        @Html.EnumDropDownListFor(m => m.UserType, "-- Pick A User Type --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserType)
+                    </div>
+                </div>
+                @Html.FormGroupTextBoxFor(m => m.Email)
+                @Html.FormGroupPasswordFor(m => m.Password)
+                @Html.FormGroupPasswordFor(m => m.ConfirmPassword)
+            </div>
 
-            @Html.FormGroupTextBoxFor(m => m.UserName)
-            <div class="form-group">
-                @Html.LabelFor(m => m.UserType, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" })
-                <div class="col-md-6 col-sm-8 col-xs-12">
-                    @Html.EnumDropDownListFor(m => m.UserType, "-- Pick A User Type --", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(m => m.UserType)
+            <div class="col-lg-6">
+                <p>And a couple more so we can tailor our service to your needs.</p>
+                @Html.FormGroupTextBoxFor(m => m.FirstName)
+                @Html.FormGroupTextBoxFor(m => m.Surname)
+                @Html.FormGroupTextBoxFor(m => m.Postcode)
+                @Html.FormGroupTextBoxFor(m => m.BirthYear)
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Gender, new { @class = "control-label col-md-3 col-sm-4 col-xs-12" })
+                    <div class="col-md-6 col-sm-8 col-xs-12">
+                        @Html.EnumDropDownListFor(m => m.Gender, "-- Pick A User Type --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Gender)
+                    </div>
                 </div>
             </div>
 
-            @Html.FormGroupTextBoxFor(m => m.Email)
-            @Html.FormGroupTextBoxFor(m => m.ConfirmEmail)
-            @Html.FormGroupPasswordFor(m => m.Password)
-            @Html.FormGroupPasswordFor(m => m.ConfirmPassword)
-
+            <p>Don't worry - we won't be sharing these with anyone without your permission.</p>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" class="btn btn-default" value="Register" />
+                    <a href="@Url.Action("Index", "Home")" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span> Cancel</a>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Register</button>
                 </div>
             </div>
         }
-    </div>
 </div>

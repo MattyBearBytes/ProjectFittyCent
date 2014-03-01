@@ -8,6 +8,8 @@ namespace FittyCent.Domain {
         public virtual string FirstName { get; set; }
         public virtual string Surname { get; set; }
         public virtual string Postcode { get; set; }
+        public virtual int BirthYear { get; set; }
+        public virtual Genders Gender { get; set; }
         public virtual TrainerProfile TrainerProfile { get; set; }
         public virtual ICollection<TrainerClass> Classes { get; private set; }
 

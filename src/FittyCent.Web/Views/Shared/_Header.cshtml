@@ -1,0 +1,42 @@
+﻿@using FittyCent.Web.Helpers
+<div class="navbar  navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand" title="Open Air Fitnesss Home">
+                <img src="~/Content/images/logo.png" alt="Open Air Fitness" title="Open Air Fitness" />
+            </a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="@(Html.IsCurrentAction("Index", "Home") && Html.IsCurrentArea("") ? "active" : null)">
+                    <a href="@Url.Action("Index", "Home", new {area =""})"><span class="glyphicon glyphicon-home"></span> Home</a>
+                </li>
+                <li class="@(Html.IsCurrentController("About") ? "active" : null)">
+                    <a href="@Url.Action("Index", "About", new {area = ""})"><span class="glyphicon glyphicon-info-sign"></span> About</a>
+                </li>
+                <li class="@(Html.IsCurrentAction("Contact", "Home") ? "active" : null)">
+                    <a href="@Url.Action("Contact", "Home", new {area = ""})"><span class="glyphicon glyphicon-phone"></span> Contact</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="@(Html.IsCurrentController("Account") ? "active" : null)">
+                        <a href="@Url.Action("Profile", "Account", new { area = "" })/"><span class="glyphicon glyphicon-user"></span> My Account</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="@(Html.IsCurrentAction("Login", "Account") ? "active" : null)">
+                        <a href="@Url.Action("Login", "Account", new { area = "" })/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

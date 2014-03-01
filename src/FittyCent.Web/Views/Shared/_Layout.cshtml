@@ -1,50 +1,32 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
+    <title>@ViewBag.Title - OpenAir Fitness</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    @RenderSection("styles", required: false)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="/" title="Open Air Fitnesss Home">
-                    <img src="~/Content/images/logo.jpg" alt="Open Air Fitness" title="Open Air Fitness" />
-                </a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("About", "Index", "About")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
-                    @Html.Partial("_LoginPartial")
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
+    <div id="wrap">
+        <header>
+            @Html.Partial("_Header")
+        </header>
+
         @RenderBody()
     </div>
-    <footer>
-        <p>&copy; @DateTime.Now.Year Open Air Fitness</p>
-    </footer>
+        
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">&copy; @DateTime.Now.Year - OpenAir Fitness</p>
+        </div>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-48318062-1', 'Open Airfitness.com.au');
-      ga('send', 'pageview');
-
-    </script>
+    @Html.Partial("_GoogleAnalytics")
 </body>
 </html>
+

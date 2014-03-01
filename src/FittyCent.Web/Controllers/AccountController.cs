@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Net.Mail;
 using System.Security.Claims;
@@ -8,6 +9,8 @@ using System.Web.Mvc;
 using AutoMapper;
 using FittyCent.Data;
 using FittyCent.Domain;
+using MailChimp;
+using MailChimp.Helper;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -20,7 +23,8 @@ namespace FittyCent.Web.Controllers {
 
         public AccountController()
             : this(new UserManager<UserAccount>(new UserStore<UserAccount>(new FitnessContext()))) {
-        }
+                UserManager.UserValidator = new UserValidator<UserAccount>(UserManager) { AllowOnlyAlphanumericUserNames = false };
+            }
 
         public AccountController(UserManager<UserAccount> userManager) {
             UserManager = userManager;
@@ -65,18 +69,27 @@ namespace FittyCent.Web.Controllers {
         [AllowAnonymous]
         public async Task<ActionResult> Register(RegisterViewModel model) {
             if ( ModelState.IsValid ) {
-                var user = new UserAccount() { UserName = model.UserName, Email = model.Email, UserType = model.UserType.Value, TrainerProfile = new TrainerProfile() };
+                var user = new UserAccount
+                           {
+                               UserName = model.Email,
+                               FirstName = model.FirstName,
+                               Surname = model.Surname, 
+                               Email = model.Email, 
+                               Postcode = model.Postcode,
+                               Gender = model.Gender,
+                               BirthYear = model.BirthYear,
+                               UserType = model.UserType.Value, 
+                               TrainerProfile = new TrainerProfile()
+                           };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if ( result.Succeeded ) {
                     await SignInAsync(user, isPersistent: false);
 
-                    //var mailMessage = new MailMessage();
-                    //mailMessage.To.Add("yourEmail@hotmail.co.uk");
-                    //mailMessage.Subject = "testing 2 ";
-                    //mailMessage.Body = RenderWelcomeEmail(model);
-                    //mailMessage.IsBodyHtml = true;
-                    //var smptClient = new SmtpClient { EnableSsl = false };
-                    //smptClient.Send(mailMessage);
+                    //Add to mail chimp
+                    var mc = new MailChimpManager(ConfigurationManager.AppSettings["MailChimpApiKey"]);
+                    mc.Subscribe(ConfigurationManager.AppSettings["MailChimpListId"], new EmailParameter { Email = model.Email }, 
+                        new { FNAME = model.FirstName, LNAME = model.Surname, POSTCODE = model.Postcode, BIRTHYEAR = model.BirthYear }, 
+                        "html", false, false, false, true);
 
                     return RedirectToAction("Profile", "Account");
                 } else {
@@ -86,17 +99,6 @@ namespace FittyCent.Web.Controllers {
 
             // If we got this far, something failed, redisplay form
             return View(model);
-        }
-
-        public string RenderWelcomeEmail(object model) {
-            ViewData.Model = model;
-            using ( var sw = new StringWriter() ) {
-                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, "WelcomeEmail");
-                var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
-                viewResult.View.Render(viewContext, sw);
-
-                return sw.GetStringBuilder().ToString();
-            }
         }
 
         [HttpPost]
