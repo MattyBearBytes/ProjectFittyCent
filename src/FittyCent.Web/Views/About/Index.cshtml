@@ -1,41 +1,159 @@
-﻿
-@{
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAbout.cshtml";
     ViewBag.Title = "About";
 }
+<div id="about-body">
+    <section class="page1 first-background">
+        <div class="page_container">
+            <h1>What is Fitness Engine?</h1>
+            <h2>The new platform for seeking and managing personal training.</h2>
+            <h2>Scroll down to discover.</h2>
+        </div>
+    </section>
 
-<section class="container" style="height: 450px;">
-    <h2>Who are we?</h2>    
-    <p>We are Open Air Fitness of course!  We help you find local personal trainers in your area that provide fitness classes in parks and open spaces.</p>
-    <p>If you're a personal trainer then we are the platform in which you manage your business and launch yourself toward participants.</p>
-    <br/>
+    <section class="page2 second-background">
+        <div class="page_container">
+            <h1>Fitness Engine empowers...</h1>
+            <br />
+            <div class="col-lg-4 img-selector">
+                <center>
+                    <a href="#" id="participant-button">
+                        <img class="img-rounded" style="padding: 20px;" src="@Url.Content("~/Content/images/Athlete-Silhouette.png")">
+                        <br/>
+                        <h2>Class Participants</h2>
+                    </a>
+                </center>
+            </div>
+            <div class="col-lg-4 img-selector">
+                <center>
+                    <a href="# id="pt-button"" id="pt-button">
+                        <img class="img-rounded" style="padding: 20px;" src="@Url.Content("~/Content/images/dumbbell.png")">
+                        <br/>
+                        <h2>Personal Trainers</h2>
+                    </a>
+                </center>
+            </div>
+            <div class="col-lg-4 img-selector">
+                <center>
+                    <a href="#" id="council-button">
+                        <img class="img-rounded" style="padding: 20px;" src="@Url.Content("~/Content/images/council.png")">
+                        <br/>
+                        <h2>Local Councils</h2>
+                    </a>
+                </center>
+            </div>
+        </div>
+    </section>
+    <section class="page3 first-background">
+        <div class="page_container">
+            <h1>You're a Participant</h1>
+            <h2>We want to locate and keep you up to date with classes near you.</h2>
+            <div class="col-lg-6">
+                <center>
+                    <img src="@Url.Content("~/Content/images/Athlete-Silhouette.png")">
+                </center>
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    <ul>
+                        <li>Find classes in your area</li>
+                        <li>Get notification of new classes nearby</li>
+                        <li>Get all the local fitness news and special deals from local businesses</li>
+                    </ul>
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="@Url.Action("Participants", "About")">More Information <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="page4 second-background">
+        <div class="page_container">
+            <h1>You're a Personal Trainer</h1>
+            <h2>Spend less time doing admin and more time performing classes.</h2>
+            <div class="col-lg-6">
+                <p>
+                    <ul>
+                        <li>Configure your classes and advertise them to the world</li>
+                        <li>Receive solid leads and drive up the class sizes</li>
+                        <li>Manage participant information and communication</li>
+                        <li>Access to specials from local fitness suppliers</li>
+                    </ul>
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="@Url.Action("PersonalTrainers", "About")">More Information <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <center>
+                    <img src="@Url.Content("~/Content/images/dumbbell.png")">
+                </center>
+            </div>
+        </div>
+    </section>
+    <section class="page5 first-background">
+        <div class="page_container">
+            <h1>You're a Local Council</h1>
+            <h2>Create a happy community with less fuss.</h2>
+            <div class="col-lg-6">
+                <center>
+                    <img src="@Url.Content("~/Content/images/council.png")">
+                </center>
+            </div>
+            <div class="col-lg-6">
+                <p>
+                    <ul>
+                        <li>Provide public spaces and be part of an exciting health initiative</li>
+                        <li>Assurance that certified Personal Trainers are operating within parks</li>
+                        <li>Less council administration cost required to facilitate personal trainers in the area</li>
+                        <li>Run your own fitness classes via the platform</li>
+                    </ul>
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="@Url.Action("Councils", "About")">More Information <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
 
-    <h2>Who do you represent?</h2>
-    <br />
-    <div class="col-lg-4">
-        <center>
-            <a href="@Url.Action("PersonalTrainers", "About")">
-            <h3>Personal Trainers</h3>
-            <br/>
-            <img src="@Url.Content("~/Content/images/dumbbell.png")">
-</a>
-        </center>
-    </div>
-    <div class="col-lg-4">
-        <center>
-            <a href="@Url.Action("Participants", "About")">
-            <h3>Class Participants</h3>
-            <br/>
-            <img src="@Url.Content("~/Content/images/Athlete-Silhouette.png")">
-</a>
-        </center>
-    </div>
-    <div class="col-lg-4">
-        <center>
-            <a href="@Url.Action("Councils", "About")">
-            <h3>Local Councils</h3>
-            <br/>
-            <img src="@Url.Content("~/Content/images/council.png")">
-</a>
-        </center>
-    </div>
-</section>
+@section styles{
+    @Styles.Render("~/Content/css/onepage")
+    @Styles.Render("~/Content/css/about")
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/onepage")
+    <script type="text/javascript">
+        (function($) {
+            $("#about-body").onepage_scroll({
+                sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
+                easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in", 
+                // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+                animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
+                pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+                updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+                beforeMove: function (index) { },  // This option accepts a callback function. The function will be called before the page moves.
+                afterMove: function (index) { },   // This option accepts a callback function. The function will be called after the page moves.
+                loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+                keyboard: true,                  // You can activate the keyboard controls
+                responsiveFallback: false        // You can fallback to normal page scroll by defining the width of the browser in which
+                // you want the responsive fallback to be triggered. For example, set this to 600 and whenever 
+                // the browser's width is less than 600, the fallback will kick in.
+            });
+
+            $("#participant-button").on("click", function() {
+                $("#about-body").moveTo(3);
+            });
+            
+            $("#pt-button").on("click", function () {
+                $("#about-body").moveTo(4);
+            });
+            
+            $("#council-button").on("click", function () {
+                $("#about-body").moveTo(5);
+            });
+        }(jQuery))
+    </script>
+}

@@ -212,6 +212,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\app\css\about.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -230,6 +231,9 @@
     <Content Include="Content\images\yoga.jpg" />
     <Content Include="Content\images\yogaemail.jpg" />
     <Content Include="Content\app\css\login.css" />
+    <Content Include="Content\onepage\jquery.onepage-scroll.js" />
+    <Content Include="Content\onepage\jquery.onepage-scroll.min.js" />
+    <Content Include="Content\onepage\onepage-scroll.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\app\css\Site.css" />
@@ -299,6 +303,7 @@
     <Content Include="Views\Sessions\Edit.cshtml" />
     <Content Include="Views\Shared\_GoogleAnalytics.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_LayoutAbout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
