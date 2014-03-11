@@ -2,8 +2,9 @@
 
 namespace FittyCent.Web {
     public class BundleConfig {
-        public static void RegisterBundles(BundleCollection bundles) 
+        public static void RegisterBundles(BundleCollection bundles)
         {
+            BundleTable.EnableOptimizations = false;
                 RegisterStyleBundles(bundles);
                 RegisterScriptBundles(bundles);
         }
