@@ -7,8 +7,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="@Url.Action("Index", "Home")" class="navbar-brand" title="Open Air Fitnesss Home">
-                <img src="~/Content/images/logo.png" alt="Open Air Fitness" title="Open Air Fitness" />
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand" title="Fitness Engine Home">
+                <img src="~/Content/images/logo.png" alt="Fitness Engine" title="Fitness Engine" />
             </a>
         </div>
         <div class="navbar-collapse collapse">
@@ -26,16 +26,52 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li class="@(Html.IsCurrentController("Account") ? "active" : null)">
-                        <a href="@Url.Action("Profile", "Account", new { area = "" })/"><span class="glyphicon glyphicon-user"></span> My Account</a>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> My Account
+                                             <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="navbar-content">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <img src="http://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/twDq00QDud4/s120-c/photo.jpg"
+                                                 alt="Alternate Text" class="img-responsive" />
+                                        </div>
+                                        <div class="col-md-7">
+                                            <span>@User.Identity.Name</span>
+                                            <p class="text-muted small">
+                                                @User.Identity.Name</p>
+                                            <div class="divider">
+                                            </div>
+                                            <a href="@Url.Action("Profile", "Account", new { area = "" })/" class="btn btn-primary btn-sm active">View Profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="navbar-footer">
+                                    <div class="navbar-footer-content">
+                                        <div class="row">
+                                         @*   <div class="col-md-6">
+                                                <a href="#" class="btn btn-default btn-sm">Change Password</a>
+                                            </div>*@
+                                            <div class="col-md-6">
+                                                <a href="@Url.Action("LogOff", "Account")" class="btn btn-default btn-sm pull-right">Sign Out</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 }
                 else
                 {
+                    <li class="@(Html.IsCurrentAction("Register", "Account") ? "active" : null)">
+                        <a href="@Url.Action("Register", "Account", new { area = "" })/"><span class="glyphicon glyphicon-star"></span> Register Interest</a>
+                    </li>
+
                     <li class="@(Html.IsCurrentAction("Login", "Account") ? "active" : null)">
                         <a href="@Url.Action("Login", "Account", new { area = "" })/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                     </li>
-                }
+                  }
             </ul>
         </div>
     </div>

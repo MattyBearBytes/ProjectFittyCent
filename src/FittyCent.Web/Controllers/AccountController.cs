@@ -234,7 +234,6 @@ namespace FittyCent.Web.Controllers {
             return View(model);
         }
 
-        [HttpPost]
         public ActionResult LogOff() {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");

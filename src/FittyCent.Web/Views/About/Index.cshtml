@@ -26,7 +26,7 @@
             </div>
             <div class="col-lg-4 img-selector">
                 <center>
-                    <a href="# id="pt-button"" id="pt-button">
+                    <a href="# id="pt-button" id="pt-button">
                         <img class="img-rounded" style="padding: 20px;" src="@Url.Content("~/Content/images/dumbbell.png")">
                         <br/>
                         <h2>Personal Trainers</h2>
@@ -53,9 +53,9 @@
                     <img src="@Url.Content("~/Content/images/Athlete-Silhouette.png")">
                 </center>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <p>
-                    <ul>
+                    <ul class="main-points">
                         <li>Find classes in your area</li>
                         <li>Get notification of new classes nearby</li>
                         <li>Get all the local fitness news and special deals from local businesses</li>
@@ -71,9 +71,9 @@
         <div class="page_container">
             <h1>You're a Personal Trainer</h1>
             <h2>Spend less time doing admin and more time performing classes.</h2>
-            <div class="col-lg-6">
+            <div class="col-lg-5 col-lg-offset-1">
                 <p>
-                    <ul>
+                    <ul class="main-points">
                         <li>Configure your classes and advertise them to the world</li>
                         <li>Receive solid leads and drive up the class sizes</li>
                         <li>Manage participant information and communication</li>
@@ -100,9 +100,9 @@
                     <img src="@Url.Content("~/Content/images/council.png")">
                 </center>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <p>
-                    <ul>
+                    <ul class="main-points">
                         <li>Provide public spaces and be part of an exciting health initiative</li>
                         <li>Assurance that certified Personal Trainers are operating within parks</li>
                         <li>Less council administration cost required to facilitate personal trainers in the area</li>
@@ -112,6 +112,106 @@
                 <p>
                     <a class="btn btn-lg btn-primary" href="@Url.Action("Councils", "About")">More Information <span class="glyphicon glyphicon-chevron-right"></span></a>
                 </p>
+            </div>
+        </div>
+    </section>
+    <section class="page6 second-background">
+        <div class="page_container">
+            <h1>We're Healthy Locals with Healthy Values</h1>
+            <h2>We are all  about creating a healthier community one local park at a time.</h2>
+            
+            <div class='row'>
+                <div class='col-md-offset-2 col-md-8'>
+                    <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                        <!-- Bottom Carousel Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#quote-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#quote-carousel" data-slide-to="1"></li>
+                            <li data-target="#quote-carousel" data-slide-to="2"></li>
+                            <li data-target="#quote-carousel" data-slide-to="3"></li>
+                            <li data-target="#quote-carousel" data-slide-to="4"></li>
+                        </ol>
+        
+                        <!-- Carousel Slides / Quotes -->
+                        <div class="carousel-inner">
+        
+                            <!-- #1 Matt -->
+                            <div class="item active">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="@Url.Content("~/Content/images/mug-matt.png")" style="width: 100px;height:100px;">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3>Matt Pontel</h3>
+                                            <p>Matt has strong software development skills and has played a key part in several projects including Curtain University’s Just Start IT competition which brings the exciting culture of Startups to high schools in Perth. He has also been an integral part of the design and development of several telecommunication, entertainment, and business solutions throughout his career.</p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                            <!-- #2 Carol -->
+                            <div class="item">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="@Url.Content("~/Content/images/mug-carol.png")" style="width: 100px;height:100px;">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3>Carol Burford</h3>
+                                            <p>A marketing know-it-all, Carol has spent many years in the marketing field working with government, not-for-profit and commercial companies. She’s worked on various successful marketing campaigns including the WA Department of Health’s nursing recruitment campaign, DonateWest’s organ donation campaign and the Winter Flu and Immunisation campaign. She’s also our resident personal trainer and therefore we use her as our fitness industry knowledge base. </p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                            <!-- #3 Chris -->
+                            <div class="item">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="@Url.Content("~/Content/images/mug-chris.png")" style="width: 100px;height:100px;">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3>Chris Sanders</h3>
+                                            <p>Located in Brisbane, Chris manages the Eastern states side of the business. His main role is business development, but he also has a flair for project management and finance.</p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                            <!-- #4 Marc -->
+                            <div class="item">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="@Url.Content("~/Content/images/mug-marc.png")" style="width: 100px;height:100px;">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3>Marc Armstrong</h3>
+                                            <p>Marc puts the ‘engine’ into Fitness Engine. He is a highly educated senior .NET developer who cuts our code, manages the tech, and transforms our “Can we make it do this?” into “Hey, look what our platform does!”.</p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                            <!-- #5 Victor -->
+                            <div class="item">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="@Url.Content("~/Content/images/mug-victor.png")" style="width: 100px;height:100px;">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3>Victor Tsen</h3>
+                                            <p>Victor has worked for some of the most technologically innovative companies in Australia including Deloitte, Bright Technologies and Silicon Beach Australia. He has unbeatable skills in UI and UX design and as such is our very own front-end development guru.</p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+        
+                        <!-- Carousel Buttons Next/Prev -->
+                        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                    </div>                          
+                </div>
             </div>
         </div>
     </section>
@@ -153,6 +253,11 @@
             
             $("#council-button").on("click", function () {
                 $("#about-body").moveTo(5);
+            });
+            
+            $('#quote-carousel').carousel({
+                pause: true,
+                interval: 4000,
             });
         }(jQuery))
     </script>
