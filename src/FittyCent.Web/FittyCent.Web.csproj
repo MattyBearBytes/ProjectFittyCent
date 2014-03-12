@@ -226,6 +226,11 @@
     <Content Include="Content\images\council.png" />
     <Content Include="Content\images\dumbbell.png" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\mug-carol.png" />
+    <Content Include="Content\images\mug-chris.png" />
+    <Content Include="Content\images\mug-marc.png" />
+    <Content Include="Content\images\mug-matt.png" />
+    <Content Include="Content\images\mug-victor.png" />
     <Content Include="Content\images\outdoor_yoga.jpg" />
     <Content Include="Content\images\voucher.jpg" />
     <Content Include="Content\images\yoga.jpg" />
